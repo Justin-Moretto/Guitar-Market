@@ -50,6 +50,17 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+//Query to return user's listings
+const getMyListings = function(user) {
+  const sqlQuery = `SELECT * FROM guitars
+  JOIN users ON users.id = guitars.owner_id
+  WHERE users.id = $1
+  LIMIT 10`
+  const values = [user.owner_id];
+  return pool.query(sqlQuery, values)
+  .then(res => res.rows)
+}
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
