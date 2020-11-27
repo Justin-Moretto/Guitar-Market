@@ -53,10 +53,22 @@ app.get("/", (req, res) => {
 //Query to return user's listings
 const getMyListings = function(user) {
   const sqlQuery = `SELECT * FROM guitars
-  JOIN users ON users.id = guitars.owner_id
+  JOIN users ON users.id = guitars.seller_id
   WHERE users.id = $1
   LIMIT 10`
-  const values = [user.owner_id];
+  const values = [user.id];
+  return pool.query(sqlQuery, values)
+  .then(res => res.rows)
+}
+
+//Query to return user's favorites
+const getMyFavs = function(user) {
+  const sqlQuery = `SELECT * FROM user_favorites
+  JOIN guitars ON user_favorites.guitar_id = guitars.id
+  JOIN users ON guitars.id = users.id
+  WHERE users.id = $1
+  LIMIT 10`;
+  const values = [user.id];
   return pool.query(sqlQuery, values)
   .then(res => res.rows)
 }
