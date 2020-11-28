@@ -1,25 +1,22 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div id="title">Guitar Market</div>
-    <div id="nav-buttons">
-          <a class="" href="#">My Listings</a>
-          <a class="" href="#">Fiter/Search</a>
-          <a class="" href="#"> Login/Register</a>
-      <form class="filter-manager">
-        <input type="radio" id="all" name="filter" value="all">
-        <label for="all">all</label>
-        <input type="radio" id="favorites" name="filter" value="favorites">
-        <label for="all">favorites</label>
-
-        <input class="" type="search" placeholder="Search" >
-        <button class="" type="submit">Search</button>
-
-        <div>
-          <input class="" type="search" placeholder="min. price" > -
-          <input class="" type="search" placeholder="max. price" >
-        </div>
-        
-      </form>
-    </div>
+  <nav>
+    <a id="title">Guitar Market
+    </a>
+      <div id="list-options">
+        <a id="search">Search/Filter</a>
+        <a id="my_listings">My Listings</a>
+        <a id="my_favourites">My Favourites</a>
+      </div>
+      <!-- if no user signed in, display login form-->
+      <!-- % if (!currentUser){ %> -->
+      <div id="account-manager">
+        <form method="GET" action="/login">
+          <button type="submit" class="btn btn-primary" id="login_button" >Login</button>
+        </form>
+        <div class='divider'></div>
+        <form action="/register" method="GET">
+          <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+      </div>
   </nav>
 </header>
