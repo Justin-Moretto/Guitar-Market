@@ -19,7 +19,6 @@ body {
     #list-options {
       display: flex;
       margin-left: auto;
-      color: black;
       flex-grow: 1;
       justify-content: space-evenly;
     }
@@ -34,6 +33,15 @@ body {
     }
   }
 
+  #search:hover {
+    color: blue;
+  }
+  #my_listings:hover {
+    color: blue;
+  }
+  #my_favourites:hover {
+    color: blue;
+  }
   .listings {
     display: flex;
     flex-direction: column;
