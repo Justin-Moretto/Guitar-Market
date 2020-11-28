@@ -23,45 +23,70 @@ body {
     }
   }
 
+  .crop {
+    overflow: hidden;
+    height: 80vh;
+    width: 100vw;
+    border: 0.2em solid  #141414;
+
+    img {
+      opacity: 0.8;
+    }
+
+
+    #website-title {
+      position: relative;
+      margin-top: -65%;
+      width: 100%;
+
+      p {
+        background-color: rgba(0, 0, 0, 0.253);
+        text-align: center;
+        color: rgb(255, 255, 255);
+        font-size: 3em;
+      }
+    }
+  }
+
   .listings {
+    background-color: #141414;
+    background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-dark.png");
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      max-width: 40vw;
+      margin: 2em;
+      text-align: center;
+      font-family: arial;
+      display: flex;
+      flex-direction: row;
+
+      img {
+        max-width: 50%;
+        max-height: 45vh;
+      }
+
+      .product-details {
+        text-align: center;
+        width: 50%;
+      }
+    }
 
     .list-group-item {
       border: none;
       color: black;
     }
 
-    .sale-item{
+    .sale-item {
+      max-width: 25vw;
 
-    }
-
-    .crop {
-      overflow: hidden;
-      height: 70vh;
-      width: 100vw;
-      opacity: 0.8;
-    }
-
-    .item{
-      width: 60vw;
-      .details {
-        width: auto;
-        position: relative;
-        margin-top: -50%;
-        span {
-          text-align: center;
-          font-size: 5vw;
-        }
-      }
-      .card-img {
-        width: 100%;
+      img {
+        max-width: 100%;
       }
     }
-
-
-
   }
 
 }
