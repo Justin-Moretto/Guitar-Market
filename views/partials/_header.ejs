@@ -10,8 +10,8 @@
       <!-- if no user signed in, display login form-->
       <!-- % if (!currentUser){ %> -->
       <div id="account-manager">
-        <form action="/login" method="GET">
-          <button type="submit" class="btn btn-primary">Login</button>
+        <form method="GET" action="/login">
+          <button type="submit" class="btn btn-primary" id="login_button" >Login</button>
         </form>
         <div class='divider'></div>
         <form action="/register" method="GET">

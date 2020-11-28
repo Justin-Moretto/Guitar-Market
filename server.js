@@ -36,12 +36,14 @@ app.use(express.static("public"));
 const usersRoutes = require("./routes/users");
 const guitarsRoutes = require("./routes/guitars");
 const favoriteRoutes = require("./routes/favorites")
+const loginRoute = require("./routes/login");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/api/guitars", guitarsRoutes(db));
 app.use("/api/favorites", favoriteRoutes(db));
+app.use("/login", loginRoute(db));
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -50,15 +52,6 @@ app.use("/api/favorites", favoriteRoutes(db));
 app.get("/", (req, res) => {
   res.render("index");
 });
-
-app.get('/login', (req, res) => {
-  res.render('login');
-});
-
-app.post('/login', (req, res) => {
-  const user_email = req.body.email;
-  res.render('index');
-})
 
 //Query to return user's listings
 const getMyListings = function(user) {
