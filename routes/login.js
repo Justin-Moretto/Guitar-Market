@@ -1,6 +1,6 @@
 const express = require('express');
 const router  = express.Router();
-const {Pool} = require('pg');
+const bcrypt = require('bcrypt');
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
@@ -9,22 +9,22 @@ module.exports = (db) => {
 
   router.post("/", (req, res) => {
     const user_email = req.body.email;
-    const user_password_input = req.body.password;
+    const user_password = req.body.password;
 
-    //Get user email
-    const getEmail = function(user_email) {
+    //Function to check email and password
+    const checkEmail = function(user_email, user_password) {
         const sqlQuery = `SELECT * FROM users WHERE email = '${user_email}';`
         db.query(sqlQuery)
         .then(data => {
-          //If the return object has a truthy length, then the query worked
-          if (data.rows.length) {
+          //Compares the passwords and if the query returned the proper data
+          if (data.rows.length && bcrypt.compareSync(user_password, data.rows[0].password)) {
             res.render('index')
           } else {
             res.send('error')
           }
         })
     }
-    getEmail(user_email);
+    checkEmail(user_email, user_password);
   });
 
   return router;
