@@ -37,6 +37,7 @@ const usersRoutes = require("./routes/users");
 const guitarsRoutes = require("./routes/guitars");
 const favoriteRoutes = require("./routes/favorites")
 const loginRoute = require("./routes/login");
+const registerRoute = require("./routes/register");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -44,6 +45,7 @@ app.use("/api/", usersRoutes(db));
 app.use("/api/", guitarsRoutes(db));
 app.use("/api/favorites", favoriteRoutes(db));
 app.use("/login", loginRoute(db));
+app.use("/register", registerRoute(db));
 // Note: mount other resources here, using the same pattern above
 
 // Home page
