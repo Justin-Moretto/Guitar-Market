@@ -1,23 +1,22 @@
 <header>
   <nav>
-    <a id="title">Guitar Market</a>
-
-    <div>
+    <a id="title">Guitar Market
+    </a>
       <div id="list-options">
-        <a class="" href="/">My Listings</a>
-        <a class="" href="/">Search/Filter</a>
+        <a>Search/Filter</a>
+        <a>My Listings</a>
+        <a>My Favourites</a>
       </div>
-
       <!-- if no user signed in, display login form-->
       <!-- % if (!currentUser){ %> -->
-        <div id="account-manager">
-          <form action="/login" method="GET">
-            <button type="submit" class="btn btn-primary">Login</button>
-          </form>
-          <form action="/register" method="GET">
-            <button type="submit" class="btn btn-primary">Register</button>
-          </form>
-        </div>
-    </div>
+      <div id="account-manager">
+        <form action="/login" method="GET">
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+        <div class='divider'></div>
+        <form action="/register" method="GET">
+          <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+      </div>
   </nav>
 </header>

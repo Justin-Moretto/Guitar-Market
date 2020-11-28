@@ -1,25 +1,36 @@
 // See: https://sass-lang.com/
 
 body {
-  background-color: #EEE;
+  background-color:white;
 
   h1 {
     color: #244751;
   }
 
-  header {
-    background-color: goldenrod;
+  nav {
     margin: 5px;
     display: flex;
+    align-items: center;
     flex-direction: row;
-    justify-content: center;
     #title {
-      font-size: 60px;
+      font-size: 40px;
+      display: flex;
     }
     #list-options {
+      display: flex;
+      margin-left: auto;
+      color: black;
+      flex-grow: 1;
+      justify-content: space-evenly;
     }
     #account-manager {
-
+      display: flex;
+      margin-left: auto;
+    }
+    .divider {
+      width: 5px;
+      height: auto;
+      display: inline-block;
     }
   }
 
