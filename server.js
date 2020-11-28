@@ -40,8 +40,8 @@ const loginRoute = require("./routes/login");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
-app.use("/api/users", usersRoutes(db));
-app.use("/api/guitars", guitarsRoutes(db));
+app.use("/api/", usersRoutes(db));
+app.use("/api/", guitarsRoutes(db));
 app.use("/api/favorites", favoriteRoutes(db));
 app.use("/login", loginRoute(db));
 // Note: mount other resources here, using the same pattern above
@@ -61,13 +61,6 @@ const getMyListings = function(user) {
   LIMIT 10`
   const values = [user.id];
   return pool.query(sqlQuery, values)
-  .then(res => res.rows)
-}
-
-//Get user email
-const getEmail = function(user_email) {
-  const sqlQuery = `SELECT * FROM users WHERE email = '${user_email}';`
-  return pool.query(sqlQuery)
   .then(res => res.rows)
 }
 
