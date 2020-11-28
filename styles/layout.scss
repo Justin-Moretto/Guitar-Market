@@ -48,10 +48,8 @@ body {
     overflow: hidden;
     height: 80vh;
     width: 100vw;
-    border: 0.2em solid  #141414;
-    img {
-      opacity: 0.8;
-    }
+    opacity: 0.9;
+
 
 
     #website-title {
@@ -60,7 +58,7 @@ body {
       width: 100%;
 
       p {
-        background-color: rgba(0, 0, 0, 0.253);
+        background-color: rgba(0, 0, 0, 0.39);
         text-align: center;
         color: rgb(255, 255, 255);
         font-size: 3em;
@@ -75,26 +73,25 @@ body {
     flex-direction: column;
     align-items: center;
 
-    h1 {
-      color: white;
-      border-bottom: 5px solid white;
-    }
     .card {
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      &:hover {
+        box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.534);
+      }
       max-width: 40vw;
       margin: 2em;
-      text-align: center;
       font-family: arial;
       display: flex;
       flex-direction: row;
 
       .price {
         color: #14cc14;
+        font-size: 1.5em;
       }
 
       img {
         max-width: 50%;
         max-height: 45vh;
+        border-right: 1px solid #cccbcb;
       }
 
       .product-details {

@@ -11,10 +11,10 @@ const createProduct = (data) => {
     <img src=${escape(data.img_url)} alt="Denim Jeans" style="width:100%">
     <div class='product-details'>
       <h1>${escape(data.name)}</h1>
-      <p class="price">$${escape(data.price) / 100}</p>
       <p>${escape(data.description)}</p>
-      <p><button class="btn btn-dark btn-lg btn-block" style="max-height: 1%;">Contact Seller</button></p>
-      <p><button class="btn btn-warning btn-lg btn-block">Add to Favorties</button></p>
+      <p class="price">$${escape(data.price) / 100}</p>
+      <p><button type="button" class="btn btn-dark btn-lg btn-sm" style="max-height: 1%;">Contact Seller</button></p>
+      <p class="favorite"><button type="button" class="btn btn-warning btn-lg btn-sm">Add to Favorties</button></p>
     </div>
   </div>
   `;
