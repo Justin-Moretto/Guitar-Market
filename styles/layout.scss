@@ -26,7 +26,42 @@ body {
   .listings {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    align-items: center;
+
+    .list-group-item {
+      border: none;
+      color: black;
+    }
+
+    .sale-item{
+
+    }
+
+    .crop {
+      overflow: hidden;
+      height: 70vh;
+      width: 100vw;
+      opacity: 0.8;
+    }
+
+    .item{
+      width: 60vw;
+      .details {
+        width: auto;
+        position: relative;
+        margin-top: -50%;
+        span {
+          text-align: center;
+          font-size: 5vw;
+        }
+      }
+      .card-img {
+        width: 100%;
+      }
+    }
+
+
+
   }
 
 }
