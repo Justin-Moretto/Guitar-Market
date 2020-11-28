@@ -9,11 +9,11 @@ module.exports = (db) => {
 
   router.post("/", (req, res) => {
     const user_email = req.body.email;
-    let query = `SELECT * FROM users
-    // WHERE email = '${user_email}`;
-    db.query(query)
-    .then(res.send('worked'))
-    .catch(err => res.send('error'));
+    const checkEmail = getEmail(user_email);
+    if (checkEmail) {
+      res.send('Worked')
+    }
   });
+
   return router;
 };

@@ -64,6 +64,13 @@ const getMyListings = function(user) {
   .then(res => res.rows)
 }
 
+//Get user email
+const getEmail = function(user_email) {
+  const sqlQuery = `SELECT * FROM users WHERE email = '${user_email}';`
+  return pool.query(sqlQuery)
+  .then(res => res.rows)
+}
+
 //Query to return user's favorites
 const getMyFavs = function(user) {
   const sqlQuery = `SELECT * FROM user_favorites
