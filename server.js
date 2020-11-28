@@ -53,6 +53,11 @@ app.get('/login', (req, res) => {
   res.render('login');
 });
 
+app.post('/login', (req, res) => {
+  const user_email = req.body.email;
+  res.render('index');
+})
+
 //Query to return user's listings
 const getMyListings = function(user) {
   const sqlQuery = `SELECT * FROM guitars
