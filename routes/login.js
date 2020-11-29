@@ -13,8 +13,9 @@ module.exports = (db) => {
 
     //Function to check email and password
     const checkEmail = function(user_email, user_password) {
-        const sqlQuery = `SELECT * FROM users WHERE email = '${user_email}';`
-        db.query(sqlQuery)
+        const sqlQuery = `SELECT * FROM users WHERE email = $1;`
+        const sqlValues = [user_email]
+        db.query(sqlQuery, sqlValues)
         .then(data => {
           //Compares the passwords and if the query returned the proper data
           if (data.rows.length && bcrypt.compareSync(user_password, data.rows[0].password)) {
@@ -24,6 +25,8 @@ module.exports = (db) => {
           }
         })
     }
+
+    //Calls the checkEmail function
     checkEmail(user_email, user_password);
   });
 
