@@ -13,8 +13,8 @@ const createProduct = (data) => {
       <h1>${escape(data.name)}</h1>
       <p>${escape(data.description)}</p>
       <p class="price">$${escape(data.price) / 100}</p>
-      <p><button type="button" class="btn btn-dark btn-lg btn-sm" style="max-height: 1%;">Contact Seller</button></p>
-      <p class="favorite"><button type="button" class="btn btn-warning btn-lg btn-sm">Add to Favorties</button></p>
+      <p class"contact-owner"><button type="button" class="btn btn-dark btn-lg btn-sm" style="max-height: 1%;">Contact Seller</button></p>
+      <p class="favorite"><button type="submit" class="btn btn-warning btn-lg btn-sm">Add to Favorties</button></p>
     </div>
   </div>
   `;
@@ -22,7 +22,6 @@ const createProduct = (data) => {
 };
 
 const renderProducts = (productData) => {
-
   for (const product of productData.guitars) {
     const $product = createProduct(product);
     $('.listings').prepend($product);
