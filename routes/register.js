@@ -11,7 +11,7 @@ module.exports = (db) => {
     const user_name = req.body.input_name;
     const user_email = req.body.email;
     const user_password = req.body.password;
-    if (user_email === '' || user_password === '' || user_password === '') {
+    if (user_name === '' || user_email === '' || user_password === '') {
       res.send('Error')
     } else if (user_email) {
       //Checking if the email exists
@@ -22,14 +22,14 @@ module.exports = (db) => {
           res.send('That email already exists, please login')
         } else {
           const updateQuery = `INSERT INTO users (name, email, password)
-          VALUES (${user_name}, ${user_email}, ${user_password}) RETURNING*;`
-          db.query(updateQuery)
-          .then(res => res.render('index'))
+          VALUES ($1, $2, $3) RETURNING*;`
+          const values = [user_name, user_email, bcrypt.hashSync(user_password, 10)]
+          db.query(updateQuery, values)
+          .then(res.render('index'))
         }
       })
     }
   })
-
 
   return router;
 };
