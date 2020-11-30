@@ -49,7 +49,7 @@ app.use("/api/favorites", favoriteRoutes(db));
 app.use("/login", loginRoute(db));
 app.use("/register", registerRoute(db));
 app.use("/search", searchRoute(db));
-app.use("/newProductRoute", newProductRoute(db));
+app.use("/newProduct", newProductRoute(db));
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -82,16 +82,6 @@ const getMyFavs = function(user) {
   .then(res => res.rows)
 }
 
-// Query to add a new listing to the website
-const addListing = function(data) {
-  const sqlQuery = `
-    INSERT INTO guitars (seller_id, name, price, type, img_url, description)
-    VALUES ($1, $2, $3, $4, $5, $6)
-  `
-  const values = [data.seller_id, data.name, data.price, data.type, data.img_url, data.description,]
-  return pool.query(sqlQuery, values)
-  .then(res => res.rows)
-}
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });

@@ -3,15 +3,17 @@ const app = express()
 const router  = express.Router();
 
 module.exports = (db) => {
-  router.post('/guitars', (req, res) => {
-    db.addListing(req.body)
-    .then(guitar => {
-      res.send(guitar);
-    })
-    .catch(e => {
-      console.error(e);
-      res.send(e)
-    });
+
+
+  router.post('/', (req, res) => {
+// Query to add a new listing to the website
+  const sqlQuery = `
+    INSERT INTO guitars (seller_id, name, price, type, img_url, description)
+    VALUES ($1, $2, $3, $4, $5, $6)
+  `
+  const values = [req.body.seller_id, req.body.name, req.body.price, req.body.type, req.body.img_url, req.body.description,]
+  return db.query(sqlQuery, values)
+    .then(res => res.rows)
   });
   return router
 }

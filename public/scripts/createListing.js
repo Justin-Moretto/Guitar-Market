@@ -1,11 +1,3 @@
-const submitProduct = (data) => {
-  return $.ajax({
-    method: "POST",
-    url: "/guitars",
-    data,
-  });
-}
-
 $(document).ready(function() {
   $('#listing-slider').hide();
   $('#error-slider').hide();
@@ -40,8 +32,11 @@ $(document).ready(function() {
         description: text[5]
       }
       console.log(product)
-      submitProduct(product).then(() => {
-        loadProducts();
+      $.ajax('/newProduct', {
+        method: "POST",
+        data: product
+      }).then(res => {
+        console.log(res)
       })
     }
   })
