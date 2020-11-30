@@ -18,10 +18,7 @@ $(document).ready(function() {
     $('input').each(function() {
       text.push($(this).val())
     })
-    if (!text[1] || !text[2] || !text[3] || !text[4] || !text[5]){
-      $("#error-message").text('No Boxes Should Be Left Empty');
-      $('#error-slider').slideDown('slow');
-    } else {
+    if (text[1] && text[2] && text[3] && text[4] && text[5]){
       $('#error-slider').slideUp('slow');
       let product = {
         seller_id: text[0],
@@ -31,13 +28,18 @@ $(document).ready(function() {
         img_url: text[4],
         description: text[5]
       }
-      console.log(product)
-      $.ajax('/newProduct', {
+      console.log('1')
+      $.ajax({
+        url: '/newProduct',
         method: "POST",
         data: product
-      }).then(res => {
-        console.log(res)
       })
+      $('#listing-slider').slideUp('slow');
+      loadProducts();
+
+    } else {
+      $("#error-message").text('No Boxes Should Be Left Empty');
+      $('#error-slider').slideDown('slow');
     }
   })
 });
