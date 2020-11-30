@@ -1,4 +1,7 @@
 $(document).on("click", ".favorite", function() {
-  // i dont know why this works
-  alert('clicked')
+  $(this).toggleClass('favorite-clicked')
+  $(this).text(function(i, text) {
+    return text === 'Remove from Favorites' ? "Add to Favorites" : "Remove from Favorites";
+    // toggle text on click
+  })
 });
