@@ -1,14 +1,22 @@
 <header>
   <div id="listing-slider">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <!-- will be moved later -->
+
     <div class="form-container">
       <h2>Create a Listing</h2>
+      <div id="error-slider">
+        <i class="fas fa-exclamation-triangle"></i>
+        <span id="error-message"></span>
+        <i class="fas fa-exclamation-triangle"></i>
+      </div>
       <form id="add-listing">
-        <div class="input">
-          <textarea placeholder="Name:"></textarea>
-          <textarea placeholder="Price:"></textarea>
-          <textarea placeholder="Type"></textarea>
-          <textarea placeholder="Image URL"></textarea>
-          <textarea placeholder="Description"></textarea>
+        <div>
+          <input placeholder="Name:" name="name"></input>
+          <input placeholder="Price:" type="number" name="price"></input>
+          <input placeholder="Type" name="type"></input>
+          <input placeholder="Image URL" name="img_url"></input>
+          <input placeholder="Description" name="description"></input>
         </div>
         <button class="btn btn-light btn-lg" type="submit">Submit</button>
       </form>

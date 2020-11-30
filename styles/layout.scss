@@ -104,17 +104,26 @@ body {
       width: 80%;
       height: 80%;
 
+      #error-slider {
+        display: flex;
+        justify-content: space-around;
+        padding: 1em;
+        color: #DC3545;
+        border: 3px solid #DC3545;
+        font-weight: 700;
+        width: 90%;
+      }
+
       form {
         display: contents;
       }
-      textarea {
+      input {
         color: #dddddd;
         background-color: transparent;
         border: none;
         border-bottom: 3px solid #dddddd;
 
         margin: 0.2em;
-        height: 4vh;
 
         ::placeholder {
           color:#ffffff;
