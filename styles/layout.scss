@@ -59,22 +59,22 @@ body {
     }
     .carousel-content {
       position: absolute;
-      margin-top: -75vh;
+      margin-top: -78.5vh;
+      background-color: rgba(0, 0, 0, 0.39);
+      align-self: center;
+      color: rgb(255, 255, 255);
+      font-size: 3em;
     }
 
-    #website-title {
-      position: relative;
-      margin-top: -65%;
-      width: 100%;
+    // #website-title {
+    //   position: relative;
+    //   margin-top: -65%;
+    //   width: 100%;
 
-      p {
-        background-color: rgba(0, 0, 0, 0.39);
-        text-align: center;
-        color: rgb(255, 255, 255);
-        font-size: 3em;
-      }
     }
   }
+
+  // listings page____________________________________________________________________________________________
 
   .listings {
     background-color: white;
@@ -94,19 +94,29 @@ body {
       flex-direction: row;
 
       .price {
-        color: #14cc14;
+        color: #11cf11;
         font-size: 1.5em;
       }
 
-      img {
-        max-width: 50%;
-        max-height: 45vh;
-        border-right: 1px solid #cccbcb;
+      .favorite-clicked {
+        border-color: #11cf11;
+        background-color: #11cf11;
       }
 
       .product-details {
         text-align: center;
         width: 50%;
+      }
+
+      button {
+        outline: none;
+        box-shadow: none;
+        width: 60%;
+      }
+      img {
+        max-width: 50%;
+        max-height: 45vh;
+        border-right: 1px solid #cccbcb;
       }
 
       h1 {
@@ -128,4 +138,3 @@ body {
     }
   }
 
-}
