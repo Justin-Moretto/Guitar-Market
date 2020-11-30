@@ -15,11 +15,11 @@ module.exports = (db) => {
     }
 
     const sqlParams = [];
-    let sqlQuery = `SELECT * FROM guitars`;
+    let sqlQuery = `SELECT * FROM guitars `;
 
     if (guitarSearch.price) {
-      sqlParams.push(`${guitarSearch.price}`)
-      sqlQuery += `WHERE price = $${sqlParams.length}`
+      sqlParams.push(`${guitarSearch.price}`);
+      sqlQuery += `WHERE price = $${sqlParams.length}`;
     }
 
     if (guitarSearch.type) {
@@ -41,9 +41,6 @@ module.exports = (db) => {
         sqlQuery += `WHERE name = $${sqlParams.length}`
       }
     }
-
-    console.log('query   ', sqlQuery)
-    console.log('query   ', sqlParams)
 
     db.query(sqlQuery, sqlParams)
     .then(data => {
