@@ -38,8 +38,5 @@ module.exports = (db) => {
       })
     }
   })
-
   return router;
 };
-
-//Test
