@@ -73,7 +73,23 @@ body {
 
     }
   }
+  #listing-slider {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
+    position: absolute;
+
+    border-top: 5px solid rgb(0, 0, 0);
+    border-bottom: 5px solid rgb(0, 0, 0);
+    width: 100%;
+    height: 80vh;
+    z-index:10;
+    top: 0px;
+
+    background-color: #ffffffa4;
+  }
   // listings page____________________________________________________________________________________________
 
   .listings {
