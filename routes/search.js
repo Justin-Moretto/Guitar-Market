@@ -15,39 +15,37 @@ module.exports = (db) => {
     }
 
     const sqlParams = [];
-    let sqlQuery = `SELECT * FROM guitars`;
+    let sqlQuery = `SELECT * FROM guitars `;
 
     if (guitarSearch.price) {
-      sqlParams.push(`${guitarSearch.price}`)
-      sqlQuery += `WHERE price = $${sqlParams.length}`
+      sqlParams.push(`${guitarSearch.price}`);
+      sqlQuery += `WHERE price = $${sqlParams.length}`;
     }
 
     if (guitarSearch.type) {
       if (sqlParams.length) {
-        sqlParams.push(`${guitarSearch.type}`);
-        sqlQuery += `AND type = $${sqlParams.length}`
+        sqlParams.push(`%${guitarSearch.type}%`);
+        sqlQuery += `AND type LIKE $${sqlParams.length}`
       } else {
-        sqlParams.push(`${guitarSearch.type}`);
-        sqlQuery += `WHERE type = $${sqlParams.length}`
+        sqlParams.push(`%${guitarSearch.type}%`);
+        sqlQuery += `WHERE type LIKE $${sqlParams.length}`
       }
     }
 
     if (guitarSearch.name) {
       if (sqlParams.length) {
-        sqlParams.push(`${guitarSearch.name}`);
-        sqlQuery += `AND name = $${sqlParams.length}`
+        sqlParams.push(`%${guitarSearch.name}%`);
+        sqlQuery += `AND name LIKE $${sqlParams.length}`
       } else {
-        sqlParams.push(`${guitarSearch.name}`);
-        sqlQuery += `WHERE name = $${sqlParams.length}`
+        sqlParams.push(`%${guitarSearch.name}%`);
+        sqlQuery += `WHERE name LIKE $${sqlParams.length}`
       }
     }
-
-    console.log('query   ', sqlQuery)
-    console.log('query   ', sqlParams)
 
     db.query(sqlQuery, sqlParams)
     .then(data => {
       if(data.rows.length) {
+        console.log('DATA HERE: ', data.rows)
         res.send("Worked")
       } else {
         res.send("Didn't work");
