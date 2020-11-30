@@ -46,14 +46,10 @@ module.exports = (db) => {
     db.query(sqlQuery, sqlParams)
     .then(data => {
       if(data.rows.length) {
-
-        console.log("DATA: ", data.rows)
-
-
-
+        // console.log("DATA: ", data.rows)
         res.json(data.rows)
       } else {
-        res.send("Didn't work");
+        res.json(data.rows)
       }
     })
     .catch(e => console.log(e))
