@@ -20,7 +20,7 @@ module.exports = (db) => {
 
     if (guitarSearch.price) {
       sqlParams.push(`${guitarSearch.price}`);
-      sqlQuery += `WHERE price = $${sqlParams.length}`;
+      sqlQuery += `WHERE price/100 = $${sqlParams.length}`;
     }
 
     if (guitarSearch.type) {
@@ -44,13 +44,13 @@ module.exports = (db) => {
     }
 
     db.query(sqlQuery, sqlParams)
-    .then(data => {
-      if(data.rows.length) {
-        // console.log("DATA: ", data.rows)
-        res.json(data.rows)
-      } else {
-        res.json(data.rows)
-      }
+    .then(data => { res.json(data.rows)
+    //   if(data.rows.length) {
+    //     // console.log("DATA: ", data.rows)
+    //     res.json(data.rows)
+    //   } else {
+    //     res.json(data.rows)
+    //   }
     })
     .catch(e => console.log(e))
 
