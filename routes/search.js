@@ -1,6 +1,7 @@
-//ROUTE
 const express = require('express');
 const router  = express.Router();
+// const renderProducts = require('../public/scripts/productListing')
+
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
@@ -45,8 +46,12 @@ module.exports = (db) => {
     db.query(sqlQuery, sqlParams)
     .then(data => {
       if(data.rows.length) {
-        console.log('DATA HERE: ', data.rows)
-        res.send("Worked")
+
+        console.log("DATA: ", data.rows)
+
+
+
+        res.json(data.rows)
       } else {
         res.send("Didn't work");
       }

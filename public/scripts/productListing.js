@@ -37,8 +37,8 @@ const loadProducts = () => {
   })
 };
 
-
-
 $(document).ready(function() {
   loadProducts()
 });
+
+// module.exports = renderProducts;
