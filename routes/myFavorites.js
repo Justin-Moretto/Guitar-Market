@@ -5,15 +5,15 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.post("/", (req, res) => {
-    //****Get user id from cookie***
-    const sqlQuery = `SELECT * FROM guitars
+    const sqlQuery = `SELECT guitars.name, guitars.price, guitars.type, guitars.img_url, guitars.description, guitars.seller_id FROM guitars
     JOIN user_favorites ON user_favorites.guitar_id = guitars.id
-    JOIN users ON guitars.id = users.id
-    WHERE user_favorites.user_id = 1
+    JOIN users ON user_favorites.user_id = users.id
+    WHERE users.email = $1
     LIMIT 10`;
-    // const values = [user.id];
-    db.query(sqlQuery)
+    const values = [req.session['user_id']];
+    db.query(sqlQuery, values)
     .then(data => {
+      console.log(data.rows)
       res.json(data.rows)
     })
     .catch(e => console.log(e))

@@ -5,13 +5,12 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.post("/", (req, res) => {
-    //*** GET USER ID FROM COOKIE */
     const sqlQuery = `SELECT * FROM guitars
     JOIN users ON guitars.seller_id = users.id
-    WHERE users.id = 1
+    WHERE users.email = $1
     LIMIT 10`
-    // const values = [user.id];
-    db.query(sqlQuery)
+    const values = [req.session['user_id']];
+    db.query(sqlQuery, values)
     .then(data => {
       res.json(data.rows)
     })
@@ -19,6 +18,3 @@ module.exports = (db) => {
   });
   return router;
 };
-
-
-
