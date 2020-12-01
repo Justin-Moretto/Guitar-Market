@@ -3,15 +3,12 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.post("/", (request, response) => {
-    // query to select the owner of a product
     const sqlQuery = `
-      SELECT email
-      FROM users
-      WHERE id = $1
+      INSERT INTO user_favorites (user_id, guitar_id)
     `
-    const values = [request.body.seller_id]
+    const values = []
     db.query(sqlQuery, values)
-      .then(res => response.json(res.rows))
+      .then(res => res.rows)
       .catch(e => console.log(e))
   });
   return router;
