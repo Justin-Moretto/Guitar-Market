@@ -5,28 +5,24 @@
   </div>
   <nav>
     <a id="title">Guitar Market</a>
-      <div id="list-options">
-        <div><a>Search/Filter </a></div>
-        <div><a>Create Listing</a></div>
-        <div><a>My Listings</a></div>
-      </div>
-      <!-- if no user signed in, display login form-->
-      <!-- % if (!currentUser){ %> -->
-      <div id="account-manager">
-        <form method="GET" action="/login">
-          <button type="submit" class="btn btn-primary" id="login_button" >Login</button>
-        </form>
-        <div class='divider'></div>
-        <form action="/register" method="GET">
-          <button type="submit" class="btn btn-primary">Register</button>
-        </form>
-      </div>
-      <!-- otherwise display "signed in as xxxx" and a logout button-->
-
-
-      <!-- if search/filter has been clicked-->
-
-
+    <div id="list-options">
+      <div><a id="search">Search/Filter </a></div>
+      <div><a id="create_listing">Create Listing</a></div>
+      <div><a>My Listings</a></div>
+    </div>
+    <!-- if no user signed in, display login form-->
+    <!-- % if (!currentUser){ %> -->
+    <div id="account-manager">
+      <form method="GET" action="/login">
+        <button type="submit" class="btn btn-primary" id="login_button" >Login</button>
+      </form>
+      <div class='divider'></div>
+      <form action="/register" method="GET">
+        <button type="submit" class="btn btn-primary">Register</button>
+      </form>
+    </div>
+    <!-- otherwise display "signed in as xxxx" and a logout button-->
+    <!-- if search/filter has been clicked-->
 
   </nav>
 </header>
