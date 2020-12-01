@@ -52,16 +52,16 @@ body {
   }
 
 
-  #my_listings:hover {
-    color: blue;
-  }
-  #my_favourites:hover {
-    color: blue;
-  }
+  // #my_listings:hover {
+  //   color: blue;
+  // }
+  // #my_favourites:hover {
+  //   color: blue;
+  // }
 
-  #create_listing:hover {
-    color: blue;
-  }
+  // #create_listing {
+  //   color: white;;
+  // }
 
   .crop {
     overflow: hidden;
@@ -147,6 +147,34 @@ body {
     }
   }
   // listings page____________________________________________________________________________________________
+  #contact-slider {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    position: fixed;
+
+    font-size: 1.5em;
+    font-weight: 400;
+    border-top: 5px solid rgb(0, 0, 0);
+    border-bottom: 5px solid rgb(0, 0, 0);
+    width: 100%;
+    height: 100vh;
+    z-index:10;
+    top: 0px;
+
+    background-color: #000000c9;
+    color: #dddddd;
+
+    p {
+      text-align: center;
+      width: 80%;
+      padding: 0.5em;
+      border-bottom: 2px solid #dddddd;
+      font-family: Helvetica, sans-serif;
+    }
+  }
 
   .listings {
     background-color: white;
@@ -155,7 +183,9 @@ body {
     flex-direction: column;
     align-items: center;
 
+
     .card {
+
       &:hover {
         box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.534);
       }

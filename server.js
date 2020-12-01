@@ -35,21 +35,25 @@ app.use(express.static("public"));
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
 const guitarsRoutes = require("./routes/guitars");
-const favoriteRoutes = require("./routes/myFavorites")
 const loginRoute = require("./routes/login");
 const registerRoute = require("./routes/register");
 const searchRoute = require("./routes/search");
 const newProductRoute = require("./routes/newListing");
+const myListings = require("./routes/myListings");
+const myFavorites = require("./routes/myFavorites")
+const contactOwner = require("./routes/contact");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/", usersRoutes(db));
 app.use("/api/", guitarsRoutes(db));
-app.use("/myFavorites", favoriteRoutes(db));
+app.use("/myFavorites", myFavorites(db));
+app.use("/myListings", myListings(db));
 app.use("/login", loginRoute(db));
 app.use("/register", registerRoute(db));
 app.use("/search", searchRoute(db));
 app.use("/newProduct", newProductRoute(db));
+app.use("/contactSeller", contactOwner(db));
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -58,17 +62,6 @@ app.use("/newProduct", newProductRoute(db));
 app.get("/", (req, res) => {
   res.render("index");
 });
-
-//Query to return user's listings
-const getMyListings = function(user) {
-  const sqlQuery = `SELECT * FROM guitars
-  JOIN users ON users.id = guitars.seller_id
-  WHERE users.id = $1
-  LIMIT 10`
-  const values = [user.id];
-  return pool.query(sqlQuery, values)
-  .then(res => res.rows)
-}
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
