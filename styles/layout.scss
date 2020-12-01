@@ -9,6 +9,21 @@
   #title {
     font-size: 32px !important;
   }
+  #account-manager {
+    p {
+      font-size: 12px;
+    }
+    button {
+      font-size: 18px;
+      width: 80px !important;
+      text-decoration: none;
+      outline: none;
+      border-radius: 30px;
+      margin-top: 2px;
+      margin-bottom: 2px;
+      margin-right: 1vw;
+    }
+  }
 }
 
 @media only screen and (max-width: 1200px) {
@@ -60,7 +75,7 @@ body {
     }
     #list-options {
       display: flex;
-      font-size: 2.1vw;
+      font-size: 2vw;
       align-items: center;
       margin-left: auto;
       height: 100px;
@@ -79,19 +94,19 @@ body {
       display: flex;
       flex-direction: column;
       margin-left: auto;
-      margin-right: 4vw;
       text-decoration: none;
       outline: none;
       button {
         background-color: rgb(253, 255, 129);
         color: black;
         font-size: 18px;
-        width: 100px;
+        width: 12vw;
         text-decoration: none;
         outline: none;
         border-radius: 30px;
         margin-top: 4px;
         margin-bottom: 4px;
+        margin-right: 2vw;
       }
     }
     .divider {

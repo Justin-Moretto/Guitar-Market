@@ -1,6 +1,9 @@
 const express = require('express');
 const router  = express.Router();
 const bcrypt = require('bcrypt');
+const cookieSession = require('cookie-session');
+const app = express();
+
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
@@ -20,6 +23,12 @@ module.exports = (db) => {
           console.log(data);
           //Compares the passwords and if the query returned the proper data
           if (data.rows.length && bcrypt.compareSync(user_password, data.rows[0].password)) {
+            req.session['user_id'] = sqlValues[0];
+            console.log(req.session['user_id'] + ' signed in')
+            const templateVars = {
+              currentUser: undefined
+            }
+            if (req.session['user_id']) templateVars.currentUser = req.session['user_id'];
             res.redirect('/')
           } else {
             res.send('error')

@@ -29,22 +29,30 @@
     <!-- None of these should be clickable without loggin in  -->
       <div id="list-options">
         <div><a id="search-guitars">Search/Filter</a></div>
+        <% if (currentUser) { %>
         <div><a id="create_listing">Create Listing</a></div>
         <div><a>My Listings</a></div>
         <div><a id="myFavorites" method="POST" action="/myFavorites">Favourites</a></div>
+        <% } %>
       </div>
       <!-- if no user signed in, display login form-->
-      <!-- % if (!currentUser){ %> -->
+      <% if (!currentUser) { %>
       <div id="account-manager">
         <form method="GET" action="/login">
-          <button type="submit" class="btn btn-primary" id="login_button" >Login</button>
+          <button type="submit" class="btn btn-primary">Login</button>
         </form>
         <div class='divider'></div>
         <form action="/register" method="GET">
           <button type="submit" class="btn btn-primary">Register</button>
         </form>
       </div>
-      <!-- otherwise display "signed in as xxxx" and a logout button-->
-      <!-- if search/filter has been clicked-->
+      <% } else if (currentUser) { %>
+      <div id="account-manager">
+        <p> signed in: <%= currentUser %></p>
+        <form method="POST" action="/logout">
+          <button type="submit" class="btn btn-primary">Logout</button>
+        </form>
+      </div>
+      <% } %>
   </nav>
 </header>

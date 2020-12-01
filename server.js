@@ -9,6 +9,14 @@ const bodyParser = require("body-parser");
 const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
+const cookieSession = require('cookie-session');
+
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1', 'key2'],
+  // Cookie Options
+  maxAge: 24 * 60 * 60 * 1000 // 24 hours
+}));
 
 // PG database client/connection setup
 const { Pool } = require('pg');
@@ -40,6 +48,7 @@ const loginRoute = require("./routes/login");
 const registerRoute = require("./routes/register");
 const searchRoute = require("./routes/search");
 const newProductRoute = require("./routes/newListing");
+const logoutRoute = require("./routes/logout");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -50,13 +59,19 @@ app.use("/login", loginRoute(db));
 app.use("/register", registerRoute(db));
 app.use("/search", searchRoute(db));
 app.use("/newProduct", newProductRoute(db));
+app.use("/logout", logoutRoute(db));
 // Note: mount other resources here, using the same pattern above
+
 
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index");
+  const templateVars = {
+    currentUser: undefined
+  }
+  if (req.session['user_id']) templateVars.currentUser = req.session['user_id'];
+  res.render("index", templateVars);
 });
 
 //Query to return user's listings
