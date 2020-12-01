@@ -7,7 +7,7 @@ module.exports = (db) => {
   router.post("/", (req, res) => {
     //*** GET USER ID FROM COOKIE */
     const sqlQuery = `SELECT * FROM guitars
-    JOIN users ON users.id = guitars.seller_id
+    JOIN users ON guitars.seller_id = users.id
     WHERE users.id = 1
     LIMIT 10`
     // const values = [user.id];
