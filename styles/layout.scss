@@ -62,7 +62,7 @@ body {
     width: 100vw;
 
     #title {
-      font-size: 5vw;
+      font-size: 4vw;
       font-family: 'Sansita Swashed', cursive;
       margin-top: -15px;
       padding: 5px;
@@ -72,6 +72,8 @@ body {
       padding-left: 2vw;
       padding-right: 3vw;
       height: 100%;
+      text-decoration: none;
+      color: inherit;
     }
     #list-options {
       display: flex;
@@ -310,3 +312,23 @@ body {
     }
   }
 
+// Login & Registration__________________________________
+
+#account-login-form {
+  justify-self: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50vw;
+  button {
+    background-color: rgb(253, 255, 129);
+    color: black;
+    font-size: 18px;
+    width: 12vw;
+    text-decoration: none;
+    outline: none;
+    border-radius: 30px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-right: 2vw;
+  }
+}
