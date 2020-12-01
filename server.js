@@ -35,7 +35,7 @@ app.use(express.static("public"));
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
 const guitarsRoutes = require("./routes/guitars");
-const favoriteRoutes = require("./routes/favorites")
+const favoriteRoutes = require("./routes/myFavorites")
 const loginRoute = require("./routes/login");
 const registerRoute = require("./routes/register");
 const searchRoute = require("./routes/search");
@@ -45,7 +45,7 @@ const newProductRoute = require("./routes/newListing");
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/", usersRoutes(db));
 app.use("/api/", guitarsRoutes(db));
-app.use("/api/favorites", favoriteRoutes(db));
+app.use("/myFavorites", favoriteRoutes(db));
 app.use("/login", loginRoute(db));
 app.use("/register", registerRoute(db));
 app.use("/search", searchRoute(db));
@@ -65,18 +65,6 @@ const getMyListings = function(user) {
   JOIN users ON users.id = guitars.seller_id
   WHERE users.id = $1
   LIMIT 10`
-  const values = [user.id];
-  return pool.query(sqlQuery, values)
-  .then(res => res.rows)
-}
-
-//Query to return user's favorites
-const getMyFavs = function(user) {
-  const sqlQuery = `SELECT * FROM user_favorites
-  JOIN guitars ON user_favorites.guitar_id = guitars.id
-  JOIN users ON guitars.id = users.id
-  WHERE users.id = $1
-  LIMIT 10`;
   const values = [user.id];
   return pool.query(sqlQuery, values)
   .then(res => res.rows)

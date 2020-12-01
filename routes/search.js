@@ -1,9 +1,8 @@
 const express = require('express');
 const router  = express.Router();
-// const renderProducts = require('../public/scripts/productListing')
-
 
 module.exports = (db) => {
+  //Double check this does something???
   router.get("/", (req, res) => {
     res.render('guitars')
   });
@@ -44,14 +43,13 @@ module.exports = (db) => {
     }
 
     db.query(sqlQuery, sqlParams)
-    .then(data => { res.json(data.rows)
+    .then(data => { res.json(data.rows)})
     //   if(data.rows.length) {
     //     // console.log("DATA: ", data.rows)
     //     res.json(data.rows)
     //   } else {
     //     res.json(data.rows)
     //   }
-    })
     .catch(e => console.log(e))
 
   });

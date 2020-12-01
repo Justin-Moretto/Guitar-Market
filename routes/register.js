@@ -33,7 +33,7 @@ module.exports = (db) => {
           VALUES ($1, $2, $3) RETURNING*;`
           const values = [user_name, user_email, bcrypt.hashSync(user_password, 10)]
           db.query(updateQuery, values)
-          .then(res.render('index'))
+          .then(res.redirect('/'))
         }
       })
     }
