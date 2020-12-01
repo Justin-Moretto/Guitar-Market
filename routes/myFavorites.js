@@ -13,7 +13,9 @@ module.exports = (db) => {
     const values = [req.session['user_id']];
     db.query(sqlQuery, values)
     .then(data => {
-      console.log(data.rows)
+      //DELETE THIS WHEN COMPLETE
+      console.log('QUERY INFORMATION: ', data.rows)
+      //DELETE THIS WHEN COMPLETE
       res.json(data.rows)
     })
     .catch(e => console.log(e))
