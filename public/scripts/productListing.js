@@ -1,4 +1,4 @@
-const escape =  function(str) {
+const escape = function(str) {
   // avoid js style inputs affecting the code
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
@@ -7,6 +7,9 @@ const escape =  function(str) {
 
 const createProduct = (data) => {
   let $product = `
+  <div class="cotact-slider">
+    slide down
+  </div>
   <div class="card">
     <img src=${escape(data.img_url)} alt="Denim Jeans" style="width:100%">
     <div class='product-details'>
@@ -37,8 +40,8 @@ const loadProducts = () => {
   })
 };
 
-
-
 $(document).ready(function() {
   loadProducts()
 });
+
+// module.exports = renderProducts;

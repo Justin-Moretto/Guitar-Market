@@ -20,7 +20,7 @@ module.exports = (db) => {
           console.log(data);
           //Compares the passwords and if the query returned the proper data
           if (data.rows.length && bcrypt.compareSync(user_password, data.rows[0].password)) {
-            res.render('index')
+            res.redirect('/')
           } else {
             res.send('error')
           }
