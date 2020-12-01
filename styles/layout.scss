@@ -138,8 +138,8 @@ body {
 
     position: fixed;
 
-    font-size: 2em;
-    font-weight: 700;
+    font-size: 1.5em;
+    font-weight: 400;
     border-top: 5px solid rgb(0, 0, 0);
     border-bottom: 5px solid rgb(0, 0, 0);
     width: 100%;
@@ -147,8 +147,16 @@ body {
     z-index:10;
     top: 0px;
 
-    background-color: #000000c2;
+    background-color: #000000c9;
     color: #dddddd;
+
+    p {
+      text-align: center;
+      width: 80%;
+      padding: 0.5em;
+      border-bottom: 2px solid #dddddd;
+      font-family: Helvetica, sans-serif;
+    }
   }
 
   .listings {

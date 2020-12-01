@@ -1,16 +1,20 @@
 const contactOwner = (data) => {
   let dropdown = `
   <div id="contact-slider">
-    Contact:
+    <h2>Contact:</h2>
     <p>
       ${data["0"].email}
-      <button>Email</button>
-    <p>
+      <button class="btn btn-success">Email</button>
+    </p>
     <p>
       1-800-267-2001
-      <button>SMS</button>
+      <button class="btn btn-success">SMS</button>
     </p>
-    <button class="btn btn-light btn-lg"  id="hide-contact">^</button>
+    <button class="btn btn-light btn-sm" id="hide-contact">
+      <i class="fas fa-angle-up"></i>
+      Hide Form
+      <i class="fas fa-angle-up"></i>
+    </button>
   </div>`
   $('header').prepend(dropdown)
   $('#contact-slider').hide();
@@ -18,11 +22,19 @@ const contactOwner = (data) => {
 
 $(document).ready(function() {
   let ownerEmail;
+  let ownerId;
+
   $('#contact-slider').hide();
 
   $(document).on("click", ".contact-owner", function() {
+    if ($(this).parents().find('#seller-id')["1"] !== undefined) {
+      ownerId = $(this).parents().find('#seller-id')["1"].innerHTML
+    } else {
+      ownerId = $(this).parents().find('#seller-id')["0"].innerHTML
+    }
+
     const obj = {
-      seller_id: Number($(this).parents().find('#seller-id')["1"].innerHTML)
+      seller_id: Number(ownerId)
       // traverse up tree, find the correct id and find the text in the object
     }
     console.log(obj)
