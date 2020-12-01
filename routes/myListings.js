@@ -5,6 +5,7 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.post("/", (req, res) => {
+    //*** GET USER ID FROM COOKIE */
     const sqlQuery = `SELECT * FROM guitars
     JOIN users ON users.id = guitars.seller_id
     WHERE users.id = 1
