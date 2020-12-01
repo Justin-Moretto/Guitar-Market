@@ -9,9 +9,9 @@ module.exports = (db) => {
       RETURNING *;
     `
     const values = [request.body.product_id]
-    console.log('ADDING')
+    console.log(request.body)
     db.query(sqlQuery, values)
-      .then(res => response.json(res.rows))
+      .then(res => console.log(res.rows))
       .catch(e => console.log(e))
   });
   return router;

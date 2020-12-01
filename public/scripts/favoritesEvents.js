@@ -1,9 +1,7 @@
-$(document).on("click", ".favorite", function() {
-  $(this).toggleClass('favorite-clicked')
-  $(this).text(function(i, text) {
-    return text === 'Remove from Favorites' ? "Add to Favorites" : "Remove from Favorites";
-    // toggle text on click
-  })
+$(document).on("click", ".add", function() {
+  $(this).css('display', "none")
+  $(this.find('.rm').css('display', 'inline'))
+  $(this).text('Remove from Favorites')
 
   if ($(this)["0"].innerHTML === 'Remove from Favorites') {
     let product_id;
@@ -14,7 +12,7 @@ $(document).on("click", ".favorite", function() {
     }
 
     const obj = {
-      seller_id: product_id
+      product_id,
     }
     // this will be the req body
 
@@ -25,6 +23,7 @@ $(document).on("click", ".favorite", function() {
     })
 
   } else {
+    $(this).text('Add to Favorites')
     let product_id;
     if ($(this).parents().find('#product-id')["1"] !== undefined) {
       product_id = $(this).parents().find('#product-id')["1"].innerHTML
@@ -33,7 +32,7 @@ $(document).on("click", ".favorite", function() {
     }
 
     const obj = {
-      seller_id: product_id
+      product_id,
     }
     // this will be the req body
 
