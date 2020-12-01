@@ -9,7 +9,8 @@ module.exports = (db) => {
 
   router.post("/", (req, res) => {
     const guitarSearch = {
-      price: req.body['guitar-price'],
+      min_price: req.body['guitar-price-min'],
+      max_price: req.body['guitar-price-max'],
       type: req.body['guitar-type'],
       name: req.body['guitar-name']
     }
@@ -17,9 +18,21 @@ module.exports = (db) => {
     const sqlParams = [];
     let sqlQuery = `SELECT * FROM guitars `;
 
-    if (guitarSearch.price) {
-      sqlParams.push(`${guitarSearch.price}`);
-      sqlQuery += `WHERE price/100 = $${sqlParams.length}`;
+    if (guitarSearch.min_price){
+      if (guitarSearch.max_price) {
+        sqlParams.push(`${guitarSearch.min_price}`);
+        sqlQuery += `WHERE price/100 >= $${sqlParams.length}`;
+        sqlParams.push(`${guitarSearch.max_price}`);
+        sqlQuery += `AND price/100 <= $${sqlParams.length}`;
+      } else {
+        sqlParams.push(`${guitarSearch.min_price}`);
+        sqlQuery += `WHERE price/100 >= $${sqlParams.length}`;
+      }
+    }
+
+    if (guitarSearch.max_price) {
+      sqlParams.push(`${guitarSearch.max_price}`);
+      sqlQuery += `WHERE price/100 <= $${sqlParams.length}`;
     }
 
     if (guitarSearch.type) {
@@ -44,12 +57,6 @@ module.exports = (db) => {
 
     db.query(sqlQuery, sqlParams)
     .then(data => { res.json(data.rows)})
-    //   if(data.rows.length) {
-    //     // console.log("DATA: ", data.rows)
-    //     res.json(data.rows)
-    //   } else {
-    //     res.json(data.rows)
-    //   }
     .catch(e => console.log(e))
 
   });
