@@ -72,8 +72,8 @@ const getMyListings = function(user) {
 
 //Query to return user's favorites
 const getMyFavs = function(user) {
-  const sqlQuery = `SELECT * FROM user_favorites
-  JOIN guitars ON user_favorites.guitar_id = guitars.id
+  const sqlQuery = `SELECT * FROM guitars
+  JOIN user_favorites ON user_favorites.guitar_id = guitars.id
   JOIN users ON guitars.id = users.id
   WHERE users.id = $1
   LIMIT 10`;
