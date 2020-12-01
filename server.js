@@ -41,6 +41,7 @@ const searchRoute = require("./routes/search");
 const newProductRoute = require("./routes/newListing");
 const myListings = require("./routes/myListings");
 const myFavorites = require("./routes/myFavorites")
+const contactOwner = require("./routes/contact");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -52,6 +53,7 @@ app.use("/login", loginRoute(db));
 app.use("/register", registerRoute(db));
 app.use("/search", searchRoute(db));
 app.use("/newProduct", newProductRoute(db));
+app.use("/contactSeller", contactOwner(db));
 // Note: mount other resources here, using the same pattern above
 
 // Home page
