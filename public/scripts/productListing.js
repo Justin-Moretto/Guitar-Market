@@ -7,6 +7,9 @@ const escape = function(str) {
 
 const createProduct = (data) => {
   let $product = `
+  <div class="cotact-slider">
+    slide down
+  </div>
   <div class="card">
     <img src=${escape(data.img_url)} alt="Denim Jeans" style="width:100%">
     <div class='product-details'>
