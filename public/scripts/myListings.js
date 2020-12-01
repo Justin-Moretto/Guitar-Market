@@ -1,11 +1,11 @@
 //Scripts
 
 $(document).ready(function() {
-  $('#myFavorites').on('click', event => {
+  $('#myListings').on('click', event => {
     event.preventDefault();
-    $.ajax('/myFavorites', {
+    $.ajax('/myListings', {
       method: 'POST',
-      data: $('#myFavorites').serialize()
+      data: $('#myListings').serialize()
     }).then(res => {
       renderGuitars(res)
     })
