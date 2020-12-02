@@ -24,7 +24,7 @@ module.exports = (db) => {
               LEFT JOIN user_favorites
               ON guitars.id = guitar_id
               AND user_id = (SELECT id FROM users WHERE email = '${cookie}')
-              `;
+              ORDER BY product_id`;
     }
     //const values = [req.session['user_id']];
     db.query(query)

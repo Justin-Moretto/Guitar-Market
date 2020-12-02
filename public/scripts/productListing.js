@@ -11,15 +11,17 @@ const disable = () => {
 
 
 const createProduct = (data) => {
-  console.log(data);
-  let favButton;
-  if (!data.fave_id) {
-    favButton = `<button type="button" class="btn btn-warning btn-lg btn-sm favorite" ${disabled}>Add to Favorties</button>`;
-  } else {
-    favButton = `<button type="button" class="btn btn-warning btn-lg btn-sm favorite favorite-clicked" ${disabled}>Remove from Favorites</button>`
-  }
+  console.log(data.fave_id);
+  let favButton = 'test';
+  
   const disabled = (data.sold) ? `disabled` : ``
   const status = (data.sold) ? `<p class="sold">SOLD</p>` : `<p class="price">$${escape(data.price) / 100}</p>`;
+
+  if (data.fave_id === null) {
+    favButton = `<button type="button" class="btn btn-warning btn-lg btn-sm favorite" ${disabled}>Add to Favorties</button>`;
+  } else {
+    favButton = `<button type="button" class="btn btn-warning btn-lg btn-sm rm favorite-clicked" ${disabled}>Remove from Favorites</button>`
+  }
 
   let $product = `
   <div class="card">
@@ -31,8 +33,8 @@ const createProduct = (data) => {
       <p>${escape(data.description)}</p>
       ${status}
       <p class="contact-owner"><button type="submit" class="btn btn-dark btn-lg btn-sm" ${disabled}>Contact Seller</button></p>
-      <p>${favButton}</p>
-    </div>
+      <p> ${favButton} </P>
+      </div>
   </div>
   `;
   return $product
