@@ -53,6 +53,7 @@ const contactOwner = require("./routes/contact");
 const logoutRoute = require("./routes/logout");
 const addFavorite = require("./routes/addToFavorites.js");
 const rmFavorite = require("./routes/removeFromFavorites.js");
+const deleteItem = require("./routes/delete.js");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -68,6 +69,7 @@ app.use("/contactSeller", contactOwner(db));
 app.use("/logout", logoutRoute(db));
 app.use("/addFavorite", addFavorite(db));
 app.use("/rmFavorite", rmFavorite(db));
+app.use("/delete", deleteItem(db));
 // Note: mount other resources here, using the same pattern above
 
 

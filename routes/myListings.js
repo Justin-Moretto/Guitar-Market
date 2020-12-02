@@ -5,7 +5,7 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.post("/", (req, res) => {
-    const sqlQuery = `SELECT *, guitars.name FROM guitars
+    const sqlQuery = `SELECT *, guitars.name, guitars.id FROM guitars
     JOIN users ON guitars.seller_id = users.id
     WHERE users.email = $1
     LIMIT 10`

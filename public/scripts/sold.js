@@ -1,8 +1,5 @@
 $(document).ready(function() {
-  const sold = false
+  $(document).on("click", "#sold", function() {
 
-  if(sold === true){
-    $(".price").text('SOLD')
-    $(".price").css("color", "red")
-  }
+  })
 })

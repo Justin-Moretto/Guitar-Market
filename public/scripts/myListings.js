@@ -23,8 +23,8 @@ const createListing = (data) => {
       <h1>${escape(data.name)}</h1>
       <p>${escape(data.description)}</p>
       <p class="price">$${escape(data.price) / 100}</p>
-      <p class="mark-sold"><button type="submit" class="btn btn-primary btn-lg btn-sm">Mark As Sold</button></p>
-      <p><button type="button" class="btn btn-danger">Delete Listing</button></p>
+      <p><button type="submit" class="btn btn-primary btn-lg btn-sm" id="mark-sold">Mark As Sold</button></p>
+      <p><button type="button" class="btn btn-danger" id="delete-listing">Delete Listing</button></p>
     </div>
   </div>
   `;

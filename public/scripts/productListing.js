@@ -25,6 +25,7 @@ const createProduct = (data) => {
 
 const renderProducts = (productData) => {
   for (const product of productData.guitars) {
+    // do the favorites check here
     const $product = createProduct(product);
     $('.listings').prepend($product);
   }
