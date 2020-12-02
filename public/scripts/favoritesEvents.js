@@ -37,5 +37,7 @@ $(document).on("click", ".rm", function() {
     url: '/rmFavorite',
     method: "POST",
     data: obj
+  }).then(() => {
+    location.reload();
   })
 })
