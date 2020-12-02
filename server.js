@@ -76,9 +76,13 @@ app.use("/rmFavorite", rmFavorite(db));
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
   const templateVars = {
-    currentUser: undefined
+    currentUser: undefined,
+    userEmail: undefined
   }
-  if (req.session['user_id']) templateVars.currentUser = req.session['user_id'];
+  if (req.session['user_id']) {
+    templateVars.currentUser = req.session['user_id'],
+    templateVars.userEmail = req.session['user_email']
+  }
   res.render("index", templateVars);
 });
 

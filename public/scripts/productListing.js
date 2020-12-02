@@ -6,6 +6,13 @@ const escape = function(str) {
 };
 
 const createProduct = (data) => {
+  let $favButton = `is this item already favorited?`;
+  if (!data.user_id) {
+    $favButton = `<button type="button" class="btn btn-warning btn-lg btn-sm favorite">Add to Favorties</button>`;
+  } else {
+    $favButton = `<button type="button" class="btn btn-warning btn-lg btn-sm favorite favorite-clicked">Remove from Favorites</button>`
+  }
+
   let $product = `
   <div class="card">
     <p id="product-id" style="display: none">${escape(data.id)}</p>
@@ -16,8 +23,8 @@ const createProduct = (data) => {
       <p>${escape(data.description)}</p>
       <p class="price">$${escape(data.price) / 100}</p>
       <p class="contact-owner"><button type="submit" class="btn btn-dark btn-lg btn-sm">Contact Seller</button></p>
-      <p><button type="button" class="btn btn-warning btn-lg btn-sm favorite">Add to Favorties</button></p>
-    </div>
+      <p>${$favButton}</p>
+      </div>
   </div>
   `;
   return $product

@@ -45,11 +45,11 @@
 
 body {
   background-color: black;
-  color: rgb(253, 255, 129);
+  color: rgb(245, 210, 96);
   font-size: 20px;
 
   header {
-    border: 5px solid rgb(253, 255, 129);
+    border: 5px solid rgb(245, 210, 96);
     border-radius: 0px 0px 20px 20px;
     background-color: rgba(255, 255, 255, 0.33);
   }
@@ -86,7 +86,7 @@ body {
         font-weight: bold;
         padding: 12% 1.5vw;
         :hover {
-          background-color: rgb(253, 255, 129);
+          background-color: rgb(245, 210, 96);
           color: black;
           cursor: pointer;
         }
@@ -99,7 +99,7 @@ body {
       text-decoration: none;
       outline: none;
       button {
-        background-color: rgb(253, 255, 129);
+        background-color: rgb(245, 210, 96);
         color: black;
         font-size: 18px;
         width: 12vw;
@@ -320,7 +320,7 @@ body {
   margin-right: auto;
   width: 50vw;
   button {
-    background-color: rgb(253, 255, 129);
+    background-color: rgb(245, 210, 96);
     color: black;
     font-size: 18px;
     width: 12vw;
@@ -330,5 +330,25 @@ body {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: 2vw;
+  }
+}
+
+.new-search {
+  width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(245, 210, 96);
+  color: #000000;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  button {
+    background-color: rgb(245, 210, 96);
+    color: black;
+    font-size: 16px;
+    width: 6vw;
+    text-decoration: none;
+    outline: none;
+    border-radius: 30px;
+    margin: 3px;
   }
 }
