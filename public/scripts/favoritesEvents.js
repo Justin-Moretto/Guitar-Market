@@ -1,11 +1,5 @@
 $(document).on("click", ".favorite", function() {
-  $(this).toggleClass('favorite-clicked')
-  $(this).text(function(i, text) {
-    return text === 'Remove from Favorites' ? "Add to Favorites" : "Remove from Favorites";
-    // toggle text on click
-  })
-
-  if ($(this)["0"].innerHTML === 'Remove from Favorites') {
+  $(this).css('display', "none")
     let product_id;
     if ($(this).parents().find('#product-id')["1"] !== undefined) {
       product_id = $(this).parents().find('#product-id')["1"].innerHTML
@@ -14,7 +8,7 @@ $(document).on("click", ".favorite", function() {
     }
 
     const obj = {
-      seller_id: product_id
+      product_id,
     }
     // this will be the req body
 
@@ -23,24 +17,27 @@ $(document).on("click", ".favorite", function() {
       method: "POST",
       data: obj
     })
-
-  } else {
-    let product_id;
-    if ($(this).parents().find('#product-id')["1"] !== undefined) {
-      product_id = $(this).parents().find('#product-id')["1"].innerHTML
-    } else {
-      product_id = $(this).parents().find('#product-id')["0"].innerHTML
-    }
-
-    const obj = {
-      seller_id: product_id
-    }
-    // this will be the req body
-
-    $.ajax({
-      url: '/rmFavorite',
-      method: "POST",
-      data: obj
-    })
-  }
 });
+
+$(document).on("click", ".rm", function() {
+  $(this).css('display', "none")
+  let product_id;
+  if ($(this).parents().find('#product-id')["1"] !== undefined) {
+    product_id = $(this).parents().find('#product-id')["1"].innerHTML
+  } else {
+    product_id = $(this).parents().find('#product-id')["0"].innerHTML
+  }
+
+  const obj = {
+    product_id,
+  }
+
+  // this will be the req body
+  $.ajax({
+    url: '/rmFavorite',
+    method: "POST",
+    data: obj
+  }).then(() => {
+    location.reload();
+  })
+})

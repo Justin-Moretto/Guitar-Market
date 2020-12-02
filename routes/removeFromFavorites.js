@@ -9,7 +9,7 @@ module.exports = (db) => {
     const sqlQuery = `
       DELETE FROM user_favorites
       WHERE user_id = $1
-      AND guitar_id = $2
+      AND guitar_id = $2;
     `
     const values = [request.session['user_id'], request.body.product_id]
     db.query(sqlQuery, values)

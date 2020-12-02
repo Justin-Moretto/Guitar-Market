@@ -132,14 +132,17 @@ body {
 
 
   .crop {
+    top: 0px;
     overflow: hidden;
-    height: 80vh;
+    height: 90vh;
     width: 100vw;
     opacity: 0.9;
+    margin-top: -15.5vh;
 
     img {
       max-height: 100%;
     }
+
     .carousel-content {
       position: absolute;
       margin-top: -78.5vh;
@@ -269,6 +272,11 @@ body {
 
       .price {
         color: #11cf11;
+        font-size: 1.5em;
+      }
+
+      .sold {
+        color: #cf1111;
         font-size: 1.5em;
       }
 

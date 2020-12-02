@@ -24,7 +24,8 @@ $(document).ready(function() {
 
   $('#clear-button').on('click', event => {
     event.preventDefault();
-    $('#new-search_price').val('')
+    $('#new-search_max-price').val('')
+    $('#new-search_min-price').val('')
     $('#new-search_type').val('')
     $('#new-search_name').val('')
     loadProducts();
