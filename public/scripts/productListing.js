@@ -13,6 +13,7 @@ const disable = () => {
 const createProduct = (data) => {
   console.log(data);
   const visible = (data.user_id === null) ? `disabled` : ``
+  const userProductTrue = (data.current_user === data.seller_id) ? `style="display: none"` : ``
   let favButton = 'test';
 
   const disabled = (data.sold) ? `disabled` : ``
@@ -33,7 +34,7 @@ const createProduct = (data) => {
       <h1>${escape(data.name)}</h1>
       <p>${escape(data.description)}</p>
       ${status}
-      <p class="contact-owner"><button type="submit" class="btn btn-dark btn-lg btn-sm" ${disabled} ${visible}>Contact Seller</button></p>
+      <p class="contact-owner"><button type="submit" class="btn btn-dark btn-lg btn-sm" ${userProductTrue} ${disabled} ${visible} >Contact Seller</button></p>
       <p> ${favButton} </P>
       </div>
   </div>
