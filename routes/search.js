@@ -56,7 +56,7 @@ module.exports = (db) => {
     }
 
     db.query(sqlQuery, sqlParams)
-    .then(data => { res.json(data.rows)})
+    .then(data => { res.json(data.rows) })
     .catch(e => console.log(e))
 
   });

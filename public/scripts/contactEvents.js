@@ -3,7 +3,7 @@ const contactOwner = (data) => {
   <div id="contact-slider">
     <h2>Contact:</h2>
     <form method="POST" action="/twilioEmail">
-    <p>
+    <input type="text" name="${data["0"].email}">
       ${data["0"].email}
       <button class="btn btn-success">Email</button>
     </p>
