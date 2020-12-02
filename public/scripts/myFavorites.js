@@ -18,7 +18,7 @@ const createFavorite = (data) => {
   const status = (data.sold) ? `<p class="sold">SOLD</p>` : `<p class="price">$${escape(data.price) / 100}</p>`
   let $product = `
   <div class="card">
-    <p id="product-id" style="display: none">${escape(data.id)}</p>
+    <p id="product-id" style="display: none">${escape(data.product_id)}</p>
     <p id="seller-id" style="display: none">${escape(data.seller_id)}</p>
     <img src=${escape(data.img_url)} alt="Denim Jeans" style="width:100%">
     <div class='product-details'>

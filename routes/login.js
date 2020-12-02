@@ -23,19 +23,16 @@ module.exports = (db) => {
           // console.log(data);
           //Compares the passwords and if the query returned the proper data
           if (data.rows.length && bcrypt.compareSync(user_password, data.rows[0].password)) {
-            req.session['user_id'] = data.rows[0].id;
-            req.session['user_email'] = data.rows[0].email;
+            req.session['user_id'] = data.rows[0].email;
             //Delete when we are complete
             console.log(data.rows[0].email + ' signed in')
             //Delete when we are complete
 
             const templateVars = {
               currentUser: undefined,
-              userEmail: undefined
             }
             if (req.session['user_id']) {
-              templateVars.currentUser = req.session['user_id'],
-              templateVars.userEmail = req.session['user_email']
+              templateVars.currentUser = req.session['user_id']
             }
             res.redirect('/')
           } else {

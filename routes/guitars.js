@@ -11,19 +11,24 @@ const cookieSession = require('cookie-session');
 const app = express();
 
 module.exports = (db) => {
-  router.get("/guitars", (req, res) => {
-    console.log('TESTTESTEST:' + req.session['user_id']);
-    let query = `SELECT *, user_favorites.id AS fave_ID
-                  FROM guitars
-                  LEFT JOIN user_favorites
-                  ON guitars.id = guitar_id
-                  AND user_id = ${req.session['user_id']}`;
-    if (!req.session['user_id']) {
-      query = `SELECT * FROM guitars`;
+  router.get('/guitars', (req, res) => {
+    console.log(req.session['user_id']);
+    let query;
+    const cookie = req.session['user_id'];
+    console.log(cookie);
+    if (req.session['user_id'] === undefined) {
+      query = `SELECT *, guitars.id AS product_id FROM guitars`;
+    } else {
+      query = `SELECT guitars.id AS product_id, seller_id, name, price, type, img_url, description, sold, user_favorites.id AS fave_id
+              FROM guitars
+              LEFT JOIN user_favorites
+              ON guitars.id = guitar_id
+              AND user_id = (SELECT id FROM users WHERE email = '${cookie}')
+              `;
     }
+    //const values = [req.session['user_id']];
     db.query(query)
       .then(data => {
-        console.log(data.rows);
         const guitars = data.rows;
         res.json({ guitars });
       })

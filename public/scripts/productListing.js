@@ -11,18 +11,19 @@ const disable = () => {
 
 
 const createProduct = (data) => {
-  let $favButton = `is this item already favorited?`;
-  if (!data.user_id) {
-    $favButton = `<button type="button" class="btn btn-warning btn-lg btn-sm favorite" ${disabled}>Add to Favorties</button>`;
+  console.log(data);
+  let favButton;
+  if (!data.fave_id) {
+    favButton = `<button type="button" class="btn btn-warning btn-lg btn-sm favorite" ${disabled}>Add to Favorties</button>`;
   } else {
-    $favButton = `<button type="button" class="btn btn-warning btn-lg btn-sm favorite favorite-clicked" ${disabled}>Remove from Favorites</button>`
+    favButton = `<button type="button" class="btn btn-warning btn-lg btn-sm favorite favorite-clicked" ${disabled}>Remove from Favorites</button>`
   }
   const disabled = (data.sold) ? `disabled` : ``
   const status = (data.sold) ? `<p class="sold">SOLD</p>` : `<p class="price">$${escape(data.price) / 100}</p>`;
 
   let $product = `
   <div class="card">
-    <p id="product-id" >${escape(data.id)}</p>
+    <p id="product-id" >${escape(data.product_id)}</p>
     <p id="seller-id" >${escape(data.seller_id)}</p>
     <img src=${escape(data.img_url)} alt="Denim Jeans" style="width:100%">
     <div class='product-details'>
@@ -30,8 +31,8 @@ const createProduct = (data) => {
       <p>${escape(data.description)}</p>
       ${status}
       <p class="contact-owner"><button type="submit" class="btn btn-dark btn-lg btn-sm" ${disabled}>Contact Seller</button></p>
-      <p>${$favButton}</p>
-      </div>
+      <p>${favButton}</p>
+    </div>
   </div>
   `;
   return $product
