@@ -2,16 +2,14 @@ const contactOwner = (data) => {
   let dropdown = `
   <div id="contact-slider">
     <h2>Contact:</h2>
-    <form method="POST" action="/twilioEmail">
-    <input type="text" name="${data["0"].email}">
+    <form method="POST" action="/twilioEmail" id="twilio_email_wrapper">
+    <input type="text" placeholder="Email the owner" name="${data["0"].email}">
       ${data["0"].email}
-      <button class="btn btn-success">Email</button>
+      <button class="btn btn-success">Send Email</button>
     </form>
-    <form method="POST" action="/twilioSMS">
-    <p>
-      1-800-267-2001
-      <button class="btn btn-success">SMS</button>
-    </p>
+    <form method="POST" action="/twilioSMS" id="twilio_email_wrapper">
+      <input type="text" name="twilio-sms" placeholder="Text the owner">
+      <button class="btn btn-success">Send SMS</button>
     </form>
     <button class="btn btn-light btn-sm" id="hide-contact">
       <i class="fas fa-angle-up"></i>
