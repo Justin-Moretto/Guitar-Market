@@ -2,10 +2,12 @@ const contactOwner = (data) => {
   let dropdown = `
   <div id="contact-slider">
     <h2>Contact:</h2>
+    <form method="POST" action="/twilioEmail">
     <p>
       ${data["0"].email}
       <button class="btn btn-success">Email</button>
     </p>
+    </form>
     <p>
       1-800-267-2001
       <button class="btn btn-success">SMS</button>
@@ -21,6 +23,7 @@ const contactOwner = (data) => {
 }
 
 $(document).ready(function() {
+
   let ownerEmail;
   let ownerId;
 
@@ -48,13 +51,11 @@ $(document).ready(function() {
       contactOwner(ownerEmail);
     $('#contact-slider').slideDown('slow');
     })
-
   });
 
   $(document).on('click', "#hide-contact", () => {
     $('#contact-slider').slideUp('slow');
   })
-
 
 
 });
