@@ -4,6 +4,7 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.post("/", (request, response) => {
+    console.log(request.body)
     const sqlQuery = `
       DELETE FROM user_favorites
       WHERE user_id = (SELECT users.id FROM users WHERE email = $1)

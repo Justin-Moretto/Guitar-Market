@@ -14,6 +14,7 @@ $(document).ready(function() {
 )
 
 const createFavorite = (data) => {
+  console.log(data)
   const disabled = (data.sold) ? `disabled` : ``
   const status = (data.sold) ? `<p class="sold">SOLD</p>` : `<p class="price">$${escape(data.price) / 100}</p>`
   let $product = `
