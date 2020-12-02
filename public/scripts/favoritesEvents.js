@@ -21,7 +21,6 @@ $(document).on("click", ".favorite", function() {
 
 $(document).on("click", ".rm", function() {
   $(this).css('display', "none")
-  console.log($(this).parents().find('#product-id'))
   let product_id;
   if ($(this).parents().find('#product-id')["1"] !== undefined) {
     product_id = $(this).parents().find('#product-id')["1"].innerHTML
@@ -33,7 +32,6 @@ $(document).on("click", ".rm", function() {
     product_id,
   }
 
-  console.log(obj)
   // this will be the req body
   $.ajax({
     url: '/rmFavorite',

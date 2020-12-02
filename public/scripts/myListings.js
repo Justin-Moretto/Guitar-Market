@@ -14,6 +14,8 @@ $(document).ready(function() {
 )
 
 const createListing = (data) => {
+  const disabled = (data.sold) ? `style="display: none"` : ``
+  const status = (data.sold) ? `<p class="sold">SOLD</p>` : `<p class="price">$${escape(data.price) / 100}</p>`
   let $product = `
   <div class="card">
     <p id="product-id" style="display: none">${escape(data.id)}</p>
@@ -22,8 +24,8 @@ const createListing = (data) => {
     <div class='product-details'>
       <h1>${escape(data.name)}</h1>
       <p>${escape(data.description)}</p>
-      <p class="price">$${escape(data.price) / 100}</p>
-      <p><button type="submit" class="btn btn-primary btn-lg btn-sm" id="mark-sold">Mark As Sold</button></p>
+      ${status}
+      <p><button type="submit" class="btn btn-primary btn-lg btn-sm" id="mark-sold" ${disabled}>Mark As Sold</button></p>
       <p><button type="button" class="btn btn-danger" id="delete-listing">Delete Listing</button></p>
     </div>
   </div>

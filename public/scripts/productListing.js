@@ -5,7 +5,15 @@ const escape = function(str) {
   return div.innerHTML;
 };
 
+const disable = () => {
+    console.log($(this).find('button'))
+  }
+
+
 const createProduct = (data) => {
+  const disabled = (data.sold) ? `disabled` : ``
+  const status = (data.sold) ? `<p class="sold">SOLD</p>` : `<p class="price">$${escape(data.price) / 100}</p>`;
+
   let $product = `
   <div class="card">
     <p id="product-id" style="display: none">${escape(data.id)}</p>
@@ -14,9 +22,9 @@ const createProduct = (data) => {
     <div class='product-details'>
       <h1>${escape(data.name)}</h1>
       <p>${escape(data.description)}</p>
-      <p class="price">$${escape(data.price) / 100}</p>
-      <p class="contact-owner"><button type="submit" class="btn btn-dark btn-lg btn-sm">Contact Seller</button></p>
-      <p><button type="button" class="btn btn-warning btn-lg btn-sm favorite">Add to Favorties</button></p>
+      ${status}
+      <p class="contact-owner"><button type="submit" class="btn btn-dark btn-lg btn-sm" ${disabled}>Contact Seller</button></p>
+      <p><button type="button" class="btn btn-warning btn-lg btn-sm favorite" ${disabled}>Add to Favorties</button></p>
     </div>
   </div>
   `;

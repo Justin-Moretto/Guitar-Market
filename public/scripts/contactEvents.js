@@ -44,7 +44,6 @@ $(document).ready(function() {
       data: obj
     }).then((email) => {
       ownerEmail = email
-      console.log(ownerEmail)
       contactOwner(ownerEmail);
     $('#contact-slider').slideDown('slow');
     })

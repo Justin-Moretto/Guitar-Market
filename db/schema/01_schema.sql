@@ -17,7 +17,9 @@ CREATE TABLE guitars (
   price INTEGER NOT NULL DEFAULT 0,
   type VARCHAR(255) NOT NULL,
   img_url VARCHAR(255) NOT NULL,
-  description TEXT
+  description TEXT,
+
+  sold BOOLEAN NOT NULL DEFAULT false
 );
 
 CREATE TABLE user_favorites (

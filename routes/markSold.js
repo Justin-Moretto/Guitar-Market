@@ -5,12 +5,16 @@ module.exports = (db) => {
   router.post("/", (request, response) => {
     // query to select the owner of a product
     const sqlQuery = `
-    DELETE FROM guitars
+    UPDATE guitars
+    SET sold = TRUE
     WHERE id = $1;
     `
     const values = [request.body.product_id]
     db.query(sqlQuery, values)
-      .then(res => response.json(res.rows))
+      .then(res => {
+        response.json(res.rows)
+
+      })
       .catch(e => console.log(e))
   });
   return router;
