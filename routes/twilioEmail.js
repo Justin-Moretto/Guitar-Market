@@ -3,7 +3,7 @@ const router  = express.Router();
 
 //Twilio API For Email
 const sgMail = require('@sendgrid/mail');
-sgMail.setApiKey('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');
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 module.exports = (db) => {
   router.post("/", (req, res) => {
@@ -13,7 +13,8 @@ module.exports = (db) => {
       to: `${Object.keys(req.body)[0]}`,
       from: 'jaredflomen@gmail.com',
       subject: 'Guitar For Sale',
-      text: req.body[`${Object.keys(req.body)[0]}`],
+      text: `${req.body[`${Object.keys(req.body)[0]}`]}`,
+      html: `<strong>${req.body[`${Object.keys(req.body)[0]}`]}</strong>`
     };
     sgMail
       .send(msg)
