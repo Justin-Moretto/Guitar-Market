@@ -5,13 +5,11 @@ const contactOwner = (data) => {
     <form method="POST" action="/twilioEmail">
     <input type="text" name="${data["0"].email}">
       ${data["0"].email}
-      <button class="btn btn-success">Email</button>
+      <button class="btn btn-success">Email the owner</button>
     </form>
     <form method="POST" action="/twilioSMS">
-    <p>
-      1-800-267-2001
-      <button class="btn btn-success">SMS</button>
-    </p>
+      <input type="text" name="twilio-sms">
+      <button class="btn btn-success">SMS the owner</button>
     </form>
     <button class="btn btn-light btn-sm" id="hide-contact">
       <i class="fas fa-angle-up"></i>
