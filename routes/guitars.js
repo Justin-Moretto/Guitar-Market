@@ -12,12 +12,17 @@ const app = express();
 
 module.exports = (db) => {
   router.get('/guitars', (req, res) => {
-    console.log(req.session['user_id']);
     let query;
     const cookie = req.session['user_id'];
     console.log(cookie);
     if (req.session['user_id'] === undefined) {
-      query = `SELECT *, guitars.id AS product_id FROM guitars`;
+      query = `SELECT *, guitars.id AS product_id, user_favorites.id AS fave_id
+              FROM guitars
+              LEFT JOIN user_favorites
+              ON guitars.id = guitar_id
+              AND user_id = (SELECT id FROM users WHERE email = '${cookie}')
+              ORDER BY product_id`
+              ;
     } else {
       query = `SELECT guitars.id AS product_id, seller_id, name, price, type, img_url, description, sold, user_favorites.id AS fave_id
               FROM guitars

@@ -11,16 +11,17 @@ const disable = () => {
 
 
 const createProduct = (data) => {
-  console.log(data.fave_id);
+  console.log(data);
+  const visible = (data.user_id === null) ? `disabled` : ``
   let favButton = 'test';
 
   const disabled = (data.sold) ? `disabled` : ``
   const status = (data.sold) ? `<p class="sold">SOLD</p>` : `<p class="price">$${escape(data.price) / 100}</p>`;
 
   if (data.fave_id === null) {
-    favButton = `<button type="button" class="btn btn-warning btn-lg btn-sm favorite" ${disabled}>Add to Favorties</button>`;
+    favButton = `<button type="button" class="btn btn-warning btn-lg btn-sm favorite" ${disabled} ${visible}>Add to Favorties</button>`;
   } else {
-    favButton = `<button type="button" class="btn btn-warning btn-lg btn-sm rm favorite-clicked" ${disabled}>Remove from Favorites</button>`
+    favButton = `<button type="button" class="btn btn-warning btn-lg btn-sm rm favorite-clicked" ${disabled} ${visible}>Remove from Favorites</button>`
   }
 
   let $product = `
@@ -32,7 +33,7 @@ const createProduct = (data) => {
       <h1>${escape(data.name)}</h1>
       <p>${escape(data.description)}</p>
       ${status}
-      <p class="contact-owner"><button type="submit" class="btn btn-dark btn-lg btn-sm" ${disabled}>Contact Seller</button></p>
+      <p class="contact-owner"><button type="submit" class="btn btn-dark btn-lg btn-sm" ${disabled} ${visible}>Contact Seller</button></p>
       <p> ${favButton} </P>
       </div>
   </div>
