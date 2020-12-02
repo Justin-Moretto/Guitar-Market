@@ -15,19 +15,18 @@ $(document).ready(function() {
 
   $('#add-listing').on('submit', event => {
     event.preventDefault();
-    let text = [1];
+    let text = [];
     $('input').each(function() {
       text.push($(this).val())
     })
-    if (text[1] && text[2] && text[3] && text[4] && text[5]){
+    if (text[0] && text[1] && text[2] && text[3] && text[4]){
       $('#error-slider').slideUp('slow');
       let product = {
-        seller_id: text[0],
-        name: text[1],
-        price: Number(text[2] * 100),
-        type: text[3],
-        img_url: text[4],
-        description: text[5]
+        name: text[0],
+        price: Number(text[1] * 100),
+        type: text[2],
+        img_url: text[3],
+        description: text[4]
       }
 
       $.ajax({
