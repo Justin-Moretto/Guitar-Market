@@ -8,7 +8,7 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 module.exports = (db) => {
   router.post("/", (req, res) => {
     // console.log("EMAIL ", Object.keys(req.body)[0])
-    // console.log("BODY ", req.body[`${Object.keys(req.body)[0]}`])
+    // console.log("BODY ", req.body[`${Object.keys(req.body)[0]}`])TEST TEST
     const msg = {
       to: `${Object.keys(req.body)[0]}`,
       from: 'jaredflomen@gmail.com',
