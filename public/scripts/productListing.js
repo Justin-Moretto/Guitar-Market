@@ -13,7 +13,7 @@ const disable = () => {
 const createProduct = (data) => {
   console.log(data.fave_id);
   let favButton = 'test';
-  
+
   const disabled = (data.sold) ? `disabled` : ``
   const status = (data.sold) ? `<p class="sold">SOLD</p>` : `<p class="price">$${escape(data.price) / 100}</p>`;
 
@@ -25,8 +25,8 @@ const createProduct = (data) => {
 
   let $product = `
   <div class="card">
-    <p id="product-id" >${escape(data.product_id)}</p>
-    <p id="seller-id" >${escape(data.seller_id)}</p>
+    <p id="product-id" style="display: none">${escape(data.product_id)}</p>
+    <p id="seller-id" style="display: none">${escape(data.seller_id)}</p>
     <img src=${escape(data.img_url)} alt="Denim Jeans" style="width:100%">
     <div class='product-details'>
       <h1>${escape(data.name)}</h1>

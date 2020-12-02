@@ -48,7 +48,7 @@
       </div>
       <% } else if (currentUser) { %>
       <div id="account-manager">
-        <p> signed in as: <b> <%= userEmail %> </b></p>
+        <p> signed in as: <b> <%= currentUser %> </b></p>
         <form method="POST" action="/logout">
           <button type="submit" class="btn btn-primary">Logout</button>
         </form>
