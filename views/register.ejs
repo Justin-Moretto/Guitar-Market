@@ -51,6 +51,9 @@
       </div>
       <button type="submit" class="btn btn-primary">Register</button>
     </form>
+    <% if (error === 'Empty') { %>
+      <h5 style="color: red;">Error, Please Try Again</h5>
+    <% } %>
   </div>
 
 </body>
