@@ -27,17 +27,20 @@
 }
 
 @media only screen and (max-width: 1200px) {
-    // #title {
-    // }
+  .listings {
+    grid-template-columns: auto auto !important;
+    .card {
+      width: 520px;
+      height: 360px;
+    }
+  }
 }
+  
+  
 
 @media only screen and (max-width: 1024px) {
-  body {
-    // #title {
-    // }
-    #list-options {
-      visibility: hidden;
-    }
+  .listings {
+    grid-template-columns: auto !important;
   }
 }
 
@@ -173,25 +176,26 @@ body {
   }
 
   .listings {
-    background-color: white;
+    background-color: rgb(116, 116, 116);
     background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-dark.png");
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 10px;
+    justify-content: center;
     .card {
 
       &:hover {
         box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.534);
       }
-      max-width: 60vw;
-      margin: 2em;
+      width: 520px;
+      height: 360px;
+      margin: 10px;
       font-family: arial;
       display: flex;
       flex-direction: row;
-      color: black;
-
+      color: rgb(245, 210, 96);
+      background-color: black;
+      border: solid 5px rgb(245, 210, 96);
       .price {
         color: #11cf11;
         font-size: 1.5em;
@@ -209,7 +213,7 @@ body {
 
       .product-details {
         text-align: center;
-        width: 50%;
+        margin: auto;
       }
 
       button {
@@ -218,13 +222,17 @@ body {
         width: 60%;
       }
       img {
-        max-width: 50%;
-        max-height: 45vh;
-        border-right: 1px solid #cccbcb;
+        width: 200px;
+        height: 200px;
+        border: solid 4px rgb(245, 210, 96);
+        margin-left: 25px;
+        margin-top: auto;
+        margin-bottom: auto;
       }
 
       h1 {
-        color: black;
+        color: rgb(245, 210, 96);
+        font-size: 18px;
       }
     }
 
@@ -234,10 +242,10 @@ body {
     }
 
     .sale-item {
-      max-width: 25vw;
+      //max-width: 25vw;
 
       img {
-        max-width: 100%;
+        //max-width: 100%;
       }
     }
   }
@@ -270,8 +278,9 @@ body {
   margin-right: auto;
   background-color: rgb(245, 210, 96);
   color: #000000;
-  // border-bottom-left-radius: 30px;
-  // border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  display: grid;
   button {
     background-color: rgb(245, 210, 96);
     color: black;
@@ -283,8 +292,4 @@ body {
     margin: 3px;
   }
 }
-}
-
-.new-search_wrapper {
-  width: 80%;
 }

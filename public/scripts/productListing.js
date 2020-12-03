@@ -29,9 +29,9 @@ const createProduct = (data) => {
   <div class="card">
     <p id="product-id" style="display: none">${escape(data.product_id)}</p>
     <p id="seller-id" style="display: none">${escape(data.seller_id)}</p>
-    <img src=${escape(data.img_url)} alt="Denim Jeans" style="width:100%">
+    <img src=${escape(data.img_url)} alt="Air Guitar">
     <div class='product-details'>
-      <h1>${escape(data.name)}</h1>
+      <h1><b>${escape(data.name)}</b></h1>
       <p>${escape(data.description)}</p>
       ${status}
       <p class="contact-owner"><button type="submit" class="btn btn-dark btn-lg btn-sm" ${userProductTrue} ${disabled} ${visible} >Contact Seller</button></p>

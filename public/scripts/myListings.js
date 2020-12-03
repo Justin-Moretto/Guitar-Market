@@ -20,7 +20,7 @@ const createListing = (data) => {
   <div class="card">
     <p id="product-id" style="display: none">${escape(data.product_id)}</p>
     <p id="seller-id" style="display: none">${escape(data.seller_id)}</p>
-    <img src=${escape(data.img_url)} alt="Denim Jeans" style="width:100%">
+    <img src=${escape(data.img_url)} alt="Denim Jeans">
     <div class='product-details'>
       <h1>${escape(data.name)}</h1>
       <p>${escape(data.description)}</p>
