@@ -12,12 +12,12 @@ const disable = () => {
 
 const createProduct = (data) => {
   console.log(data);
+  let favButton;
   const visible = (data.user_id === null) ? `disabled` : ``
   const userProductTrue = (data.current_user === data.seller_id) ? `style="display: none"` : ``
-  let favButton = 'test';
-
   const disabled = (data.sold) ? `disabled` : ``
   const status = (data.sold) ? `<p class="sold">SOLD</p>` : `<p class="price">$${escape(data.price) / 100}</p>`;
+
 
   if (data.fave_id === null) {
     favButton = `<button type="button" class="btn btn-warning btn-lg btn-sm favorite" ${disabled} ${visible}>Add to Favorties</button>`;

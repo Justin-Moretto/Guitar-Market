@@ -14,9 +14,14 @@ module.exports = (db) => {
       type: req.body['guitar-type'],
       name: req.body['guitar-name']
     }
+    const cookie = req.session['user_id'];
 
     const sqlParams = [];
-    let sqlQuery = `SELECT * FROM guitars `;
+    let sqlQuery = `SELECT *, guitars.id AS product_id, user_favorites.id AS fave_id
+                    FROM guitars
+                    LEFT JOIN user_favorites
+                    ON guitars.id = guitar_id
+                    AND user_id = (SELECT id FROM users WHERE email = '${cookie}') `;
 
     if (guitarSearch.min_price){
       if (guitarSearch.max_price) {
@@ -55,6 +60,9 @@ module.exports = (db) => {
       }
     }
 
+    sqlQuery += `ORDER BY product_id`
+
+    console.log(sqlQuery)
     db.query(sqlQuery, sqlParams)
     .then(data => { res.json(data.rows) })
     .catch(e => console.log(e))

@@ -1,0 +1,168 @@
+// Listings page____________________________________________________________________________________________
+#contact-slider {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  position: fixed;
+  font-size: 1.5em;
+  font-weight: 400;
+  border-top: 5px solid rgb(0, 0, 0);
+  border-bottom: 5px solid rgb(0, 0, 0);
+  width: 100%;
+  height: 100vh;
+  z-index:10;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+
+    input:-webkit-autofill:active  {
+    -webkit-backdrop-filter: 0 0 0 30px rgba(255, 255, 255, 0) inset !important;
+    }
+
+  background-color: #000000c9;
+  color: #dddddd;
+
+  p {
+    text-align: center;
+    width: 80%;
+    padding: 0.5em;
+    border-bottom: 2px solid #dddddd;
+    font-family: 'Montserrat', sans-serif;
+  }
+  #twilio_email_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.listings {
+  background-color: white;
+  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-dark.png");
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+
+  .card {
+
+    &:hover {
+      box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.534);
+    }
+    max-width: 60vw;
+    margin: 2em;
+    font-family: arial;
+    display: flex;
+    flex-direction: row;
+    color: black;
+
+    .price {
+      color: #11cf11;
+      font-size: 1.5em;
+    }
+
+    .sold {
+      color: #cf1111;
+      font-size: 1.5em;
+    }
+
+    .favorite-clicked {
+      border-color: #11cf11;
+      background-color: #11cf11;
+    }
+
+    .product-details {
+      text-align: center;
+      width: 50%;
+    }
+
+    button {
+      outline: none;
+      box-shadow: none;
+      width: 60%;
+    }
+    img {
+      max-width: 50%;
+      max-height: 45vh;
+      border-right: 1px solid #cccbcb;
+    }
+
+    h1 {
+      color: black;
+      font-family: 'Montserrat', sans-serif;
+    }
+  }
+
+  .list-group-item {
+    border: none;
+    color: black;
+  }
+
+  .sale-item {
+    max-width: 25vw;
+
+    img {
+      max-width: 100%;
+    }
+  }
+}
+
+// Add Listing_________________________________________________________________________________________________
+
+#listing-slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+
+  border-top: 5px solid #000000;
+  border-bottom: 5px solid #000000;
+  width: 100%;
+  height: 100vh;
+  z-index:10;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+
+  background-color: #000000c9;
+  color: #dddddd;
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 3px solid #dddddd;
+    border-radius: 4px;
+    width: 80%;
+    height: 80%;
+
+    #error-slider {
+      display: flex;
+      justify-content: space-around;
+      padding: 1em;
+      color: #DC3545;
+      border: 3px solid #DC3545;
+      font-weight: 700;
+      width: 90%;
+    }
+
+    form {
+      display: contents;
+    }
+    input {
+      color: #dddddd;
+      background-color: transparent;
+      border: none;
+      border-bottom: 3px solid #dddddd;
+
+      margin: 0.2em;
+
+      ::placeholder {
+        color:#ffffff;
+     }
+    }
+  }
+}

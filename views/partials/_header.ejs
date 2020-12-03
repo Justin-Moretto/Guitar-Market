@@ -23,14 +23,14 @@
   </div>
   <nav>
 
-    <a id="title">Guitar Market</a>
+    <a href="/" id="title">Guitar Market</a>
     <!-- None of these should be clickable without loggin in  -->
       <div id="list-options">
         <div><a id="search-guitars">Search</a></div>
         <% if (currentUser) { %>
-        <div><a id="create_listing">Create Listing</a></div>
+        <div><a id="create_listing">Create A Listing</a></div>
         <div><a id="myListings" method="POST" action="/myListings">My Listings</a></div>
-        <div><a id="myFavorites" method="POST" action="/myFavorites">Favourites</a></div>
+        <div><a id="myFavorites" method="POST" action="/myFavorites">My Favourites</a></div>
         <% } %>
       </div>
       <!-- if no user signed in, display login form-->
