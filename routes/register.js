@@ -4,7 +4,8 @@ const bcrypt = require('bcrypt');
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    res.render('register')
+    const templateVars = { error: null }
+    res.render('register', templateVars)
   });
 
   router.post("/", (req, res) => {
@@ -16,7 +17,8 @@ module.exports = (db) => {
 
     //Checks if the inputs are blank
     if (user_name === '' || user_email === '' || user_password === '') {
-      res.send('Error')
+      const templateVars = {error: 'Empty'}
+      res.render('register', templateVars)
     } else if (user_email) {
 
       //Checks if the email exists in the database
@@ -26,13 +28,16 @@ module.exports = (db) => {
       .then(data => {
         //If query has a truthy length -> the email exists in the databse
         if (data.rows.length) {
-          res.send('That email already exists, please login')
+          const templateVars = {error: 'Empty'}
+          res.render('register', templateVars)
         } else {
           //Creates a new user in the users database
           const updateQuery = `INSERT INTO users (name, email, password)
           VALUES ($1, $2, $3) RETURNING*;`
           const values = [user_name, user_email, bcrypt.hashSync(user_password, 10)]
           db.query(updateQuery, values)
+          req.session['user_id'] = req.body.email
+          const templateVars = {currentUser: req.session['user_id']}
           .then(res.redirect('/'))
         }
       })

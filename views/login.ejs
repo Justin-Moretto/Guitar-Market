@@ -29,7 +29,7 @@
 
           <div id="account-manager">
             <form action="/register" method="GET">
-              <button type="submit" class="btn btn-primary">Register</button>
+              <button type="submit" class="btn btn-dark">Register</button>
             </form>
           </div>
       </nav>
@@ -47,13 +47,12 @@
         <label for="password">Password</label>
         <input type="password" name="password" class="form-control" id="login-password" placeholder="Password">
       </div>
-      <button type="submit" class="btn btn-primary">Login</button>
+      <button type="submit" class="btn btn-dark">Login</button>
     </form>
     <% if (error === 'login-exists') { %>
       <h5 style="color: red;">Error, Please Try Again</h5>
     <% } %>
   </div>
-
 </body>
 </html>
 
