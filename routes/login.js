@@ -7,7 +7,10 @@ const app = express();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    res.render('login')
+    const templateVars = {
+      error: null,
+    }
+    res.render('login', templateVars)
   });
 
   router.post("/", (req, res) => {
@@ -36,7 +39,10 @@ module.exports = (db) => {
             }
             res.redirect('/')
           } else {
-            res.send('error')
+            const templateVars = {
+              error: 'login-exists'
+            }
+            res.render('login', templateVars)
           }
         })
     }

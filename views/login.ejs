@@ -49,6 +49,9 @@
       </div>
       <button type="submit" class="btn btn-primary">Login</button>
     </form>
+    <% if (error === 'login-exists') { %>
+      <h5 style="color: red;">Error, Please Try Again</h5>
+    <% } %>
   </div>
 
 </body>
