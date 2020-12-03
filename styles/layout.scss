@@ -1,7 +1,7 @@
 // See: https://sass-lang.com/
 
 #slider {
-  margin-top: -100px;
+  // margin-top: -100px;
   z-index: -2;
 }
 
@@ -124,11 +124,13 @@ body {
     overflow: hidden;
     height: 70vh;
     width: 100vw;
-    opacity: 0.9;
+    opacity: 0.3;
     margin-top: -15.5vh;
 
     img {
       max-height: 100%;
+
+      margin-top: -15.5vh;
     }
 
     .carousel-content {
@@ -183,7 +185,7 @@ body {
     .card {
 
       &:hover {
-        box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.534);
+        box-shadow: 5px 5px 0px 0 rgba(0, 0, 0, 0.534);
       }
       max-width: 60vw;
       margin: 2em;

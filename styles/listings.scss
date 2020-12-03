@@ -18,6 +18,10 @@
   left: 0px;
   right: 0px;
 
+    input:-webkit-autofill:active  {
+    -webkit-backdrop-filter: 0 0 0 30px rgba(255, 255, 255, 0) inset !important;
+    }
+
   background-color: #000000c9;
   color: #dddddd;
 
