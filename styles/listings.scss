@@ -26,7 +26,7 @@
     width: 80%;
     padding: 0.5em;
     border-bottom: 2px solid #dddddd;
-    font-family: Helvetica, sans-serif;
+    font-family: 'Montserrat', sans-serif;
   }
   #twilio_email_wrapper {
     display: flex;
@@ -41,14 +41,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  font-family: 'Montserrat', sans-serif;
 
   .card {
 
     &:hover {
       box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.534);
     }
-    max-width: 40vw;
+    max-width: 60vw;
     margin: 2em;
     font-family: arial;
     display: flex;
@@ -88,6 +88,7 @@
 
     h1 {
       color: black;
+      font-family: 'Montserrat', sans-serif;
     }
   }
 

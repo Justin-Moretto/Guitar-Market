@@ -2,12 +2,12 @@
   <form id="form-search" method="POST" action="/search">
 
     <div class="new-search_wrapper">
-      <label for="new-search_min-price">Minimum Price</label>
+      <label for="new-search_min-price">Min Price</label>
       <input type="number" name="guitar-price-min" placeholder="$" id="new-search_min-price">
     </div>
 
     <div class="new-search_wrapper">
-      <label for="new-search_max-price">Maximum Price</label>
+      <label for="new-search_max-price">Max Price</label>
       <input type="number" name="guitar-price-max" placeholder="$" id="new-search_max-price">
     </div>
 
@@ -21,13 +21,14 @@
       <input type="text" name="guitar-name" placeholder="Name" id="new-search_name">
     </div>
 
-    <div class="new-search_wrapper_button">
-      <button class="btn btn-primary" id='search-button' type="submit">Search</button>
-    </div>
+    <div class="search_action_buttons">
+      <div class="new-search_wrapper_button">
+        <button class="btn btn-dark" id='search-button' type="submit">Search</button>
+      </div>
 
-    <div class="new-search_wrapper_button">
-      <button class="btn btn-primary" id='clear-button'>Clear</button>
+      <div class="new-search_wrapper_button">
+        <button class="btn btn-dark" id='clear-button'>Clear</button>
+      </div>
     </div>
-
   </form>
 </section>

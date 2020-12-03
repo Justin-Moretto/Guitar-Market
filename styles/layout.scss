@@ -45,6 +45,7 @@ body {
   background-color: black;
   color: rgb(245, 210, 96);
   font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
 
   header {
     border: 5px solid rgb(245, 210, 96);
@@ -96,10 +97,12 @@ body {
       margin-left: auto;
       text-decoration: none;
       outline: none;
+      margin-left: 30px;
       button {
         background-color: rgb(245, 210, 96);
         color: black;
         font-size: 18px;
+        font-weight: 700;
         width: 12vw;
         text-decoration: none;
         outline: none;
@@ -118,7 +121,7 @@ body {
   .crop {
     top: 0px;
     overflow: hidden;
-    height: 90vh;
+    height: 70vh;
     width: 100vw;
     opacity: 0.9;
     margin-top: -15.5vh;
@@ -181,7 +184,7 @@ body {
       &:hover {
         box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.534);
       }
-      max-width: 40vw;
+      max-width: 60vw;
       margin: 2em;
       font-family: arial;
       display: flex;
@@ -249,6 +252,7 @@ body {
     background-color: rgb(245, 210, 96);
     color: black;
     font-size: 18px;
+    font-weight: 700;
     width: 12vw;
     text-decoration: none;
     outline: none;
@@ -265,17 +269,21 @@ body {
   margin-right: auto;
   background-color: rgb(245, 210, 96);
   color: #000000;
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
+  // border-bottom-left-radius: 30px;
+  // border-bottom-right-radius: 30px;
   button {
     background-color: rgb(245, 210, 96);
     color: black;
     font-size: 16px;
-    width: 6vw;
+    width: 80px;
     text-decoration: none;
     outline: none;
     border-radius: 30px;
     margin: 3px;
   }
 }
+}
+
+.new-search_wrapper {
+  width: 80%;
 }

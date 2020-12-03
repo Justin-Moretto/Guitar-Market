@@ -1,8 +1,6 @@
 <header>
   <div id="listing-slider">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <!-- will be moved later -->
-
     <div class="form-container">
       <h2>Create a Listing</h2>
       <div id="error-slider">
@@ -28,7 +26,7 @@
     <a id="title">Guitar Market</a>
     <!-- None of these should be clickable without loggin in  -->
       <div id="list-options">
-        <div><a id="search-guitars">Search/Filter</a></div>
+        <div><a id="search-guitars">Search</a></div>
         <% if (currentUser) { %>
         <div><a id="create_listing">Create Listing</a></div>
         <div><a id="myListings" method="POST" action="/myListings">My Listings</a></div>
@@ -39,18 +37,18 @@
       <% if (!currentUser) { %>
       <div id="account-manager">
         <form method="GET" action="/login">
-          <button type="submit" class="btn btn-primary">Login</button>
+          <button type="submit" class="btn btn-dark">Login</button>
         </form>
         <div class='divider'></div>
         <form action="/register" method="GET">
-          <button type="submit" class="btn btn-primary">Register</button>
+          <button type="submit" class="btn btn-dark">Register</button>
         </form>
       </div>
       <% } else if (currentUser) { %>
       <div id="account-manager">
-        <p> signed in as: <b> <%= currentUser %> </b></p>
+         Signed in as: <b> <%= currentUser %> </b>
         <form method="POST" action="/logout">
-          <button type="submit" class="btn btn-primary">Logout</button>
+          <button type="submit" class="btn btn-dark">Logout</button>
         </form>
       </div>
       <% } %>
