@@ -38,12 +38,17 @@
 }
 
 .listings {
-  background-color: white;
-  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-dark.png");
+  // background-color: white;
+  // background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-dark.png");
+
+  background-color: #ffffff;
+  background-image: url("https://www.transparenttextures.com/patterns/climpek.png");
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: 'Montserrat', sans-serif;
+  min-width: 100%;
+  max-width: 100vw;
 
   .card {
 
