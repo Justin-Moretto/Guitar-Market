@@ -55,8 +55,8 @@ const addFavorite = require("./routes/addToFavorites.js");
 const rmFavorite = require("./routes/removeFromFavorites.js");
 const deleteItem = require("./routes/delete.js");
 const sold = require("./routes/markSold.js");
-const twilioEmailRoute = require("./routes/twilioEmail");
-const twilioSMSRoute = require("./routes/twilioSMS");
+// const twilioEmailRoute = require("./routes/twilioEmail");
+// const twilioSMSRoute = require("./routes/twilioSMS");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -74,8 +74,8 @@ app.use("/addFavorite", addFavorite(db));
 app.use("/rmFavorite", rmFavorite(db));
 app.use("/delete", deleteItem(db));
 app.use("/sold", sold(db));
-app.use("/twilioEmail", twilioEmailRoute(db));
-app.use("/twilioSMS", twilioSMSRoute(db));
+// app.use("/twilioEmail", twilioEmailRoute(db));
+// app.use("/twilioSMS", twilioSMSRoute(db));
 
 // Note: mount other resources here, using the same pattern above
 
