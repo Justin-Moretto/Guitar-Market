@@ -33,6 +33,7 @@ module.exports = (db) => {
       .then(data => {
         const guitars = data.rows;
         res.json({ guitars });
+        res.sendStatus(200)
       })
       .catch(err => {
         res
