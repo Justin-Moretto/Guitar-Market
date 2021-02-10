@@ -31,6 +31,7 @@ module.exports = (db) => {
     //const values = [req.session['user_id']];
     db.query(query)
       .then(data => {
+        console.log('.then: ', data)
         const guitars = data.rows;
         res.json({ guitars });
         res.sendStatus(200)
