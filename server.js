@@ -22,7 +22,7 @@ app.use(cookieSession({
 const { Pool } = require('pg');
 const dbParams = require('./lib/db.js');
 console.log('dbParams: ', dbParams)
-const db = new Pool(dbParams, { require: true, rejectUnauthorized: false });
+const db = new Pool(dbParams);
 console.log('db: ', db)
 db.connect();
 

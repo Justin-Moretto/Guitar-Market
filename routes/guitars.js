@@ -10,6 +10,7 @@ const router  = express.Router();
 const app = express();
 
 module.exports = (db) => {
+  console.log('inside guitars.js')
   router.get('/guitars', (req, res) => {
     let query;
     const cookie = req.session['user_id'];
