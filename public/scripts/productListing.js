@@ -9,9 +9,8 @@ const disable = () => {
     console.log($(this).find('button'))
   }
 
-
 const createProduct = (data) => {
-  console.log(data);
+  //console.log(data);
   let favButton;
   const visible = (data.user_id === null) ? `disabled` : ``
   const userProductTrue = (data.current_user === data.seller_id) ? `style="display: none"` : ``

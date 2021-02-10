@@ -1,5 +1,3 @@
-// load .env data into process.env
-// require('dotenv').config({silent: true});
 
 // Web server config
 const PORT       = process.env.PORT || 8080;
@@ -10,6 +8,9 @@ const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
 const cookieSession = require('cookie-session');
+
+// load .env data into process.env
+if (ENV === "development") require('dotenv').config({silent: true});
 
 app.use(cookieSession({
   name: 'session',

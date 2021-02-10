@@ -12,6 +12,7 @@ const app = express();
 module.exports = (db) => {
   console.log('inside guitars.js')
   router.get('/guitars', (req, res) => {
+    res.header({ 'Access-Control-Allow-Origin': '*' })
     let query;
     const cookie = req.session['user_id'];
     if (req.session['user_id'] === undefined) {
@@ -32,10 +33,9 @@ module.exports = (db) => {
     //const values = [req.session['user_id']];
     db.query(query)
       .then(data => {
-        console.log('.then: ', data)
+        console.log('inside .then of guitars.js')
         const guitars = data.rows;
         res.json({ guitars });
-        res.sendStatus(200)
       })
       .catch(err => {
         res
