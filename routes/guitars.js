@@ -35,7 +35,7 @@ module.exports = (db) => {
       .then(data => {
         console.log('inside .then of guitars.js')
         const guitars = data.rows;
-        res.json({ guitars });
+        return res.status(200).json({ guitars });
       })
       .catch(err => {
         res
