@@ -24,7 +24,7 @@
     "node-sass": "^4.14.1",
     "node-sass-middleware": "^0.11.0",
     "pg": "*",
-    "pg-native": "^3.0.0",
+    "pg-native": "*",
     "twilio": "^3.52.0"
   },
   "devDependencies": {
