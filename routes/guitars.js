@@ -45,6 +45,7 @@ module.exports = (db) => {
       });
     
       res.send(guitarsFromDatabase)
+      res.end()
   });
   return router;
 };

@@ -22,6 +22,7 @@ module.exports = (db) => {
       });
 
     res.send(usersFromDatabase)
+    res.end()
   });
   return router;
 };
