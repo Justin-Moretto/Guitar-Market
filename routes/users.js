@@ -6,11 +6,11 @@
  */
 
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 
 module.exports = (db) => {
-  router.get("/users", (req, res) => {
-    db.query(`SELECT * FROM users;`)
+  router.get("/users", async (req, res) => {
+    let usersFromDatabase = await db.query(`SELECT * FROM users;`)
       .then(data => {
         const users = data.rows;
         res.json({ users });
@@ -20,7 +20,8 @@ module.exports = (db) => {
           .status(500)
           .json({ error: err.message });
       });
-    res.end()  
+
+    res.send(usersFromDatabase)
   });
   return router;
 };

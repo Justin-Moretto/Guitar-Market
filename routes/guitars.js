@@ -30,14 +30,13 @@ module.exports = (db) => {
               ORDER BY product_id`;
     }
     //const values = [req.session['user_id']];
-    let guitarsFromDatabse = await db.query(query)
+    let guitarsFromDatabase = await db.query(query)
       .then(data => {
         const guitars = data.rows;
         console.log('GUITARS .THEN')
         return res
           .status(200)
           .json({ guitars })
-          .end();
       })
       .catch(err => {
         res
@@ -45,7 +44,7 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
     
-      res.send(guitarsFromDatabse)
+      res.send(guitarsFromDatabase)
   });
   return router;
 };
