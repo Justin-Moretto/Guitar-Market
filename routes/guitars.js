@@ -6,7 +6,7 @@
  */
 
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 
 module.exports = (db) => {
   console.log('INSIDE guitars.js')
@@ -21,7 +21,7 @@ module.exports = (db) => {
               ON guitars.id = guitar_id
               AND user_id = (SELECT id FROM users WHERE email = '${cookie}')
               ORDER BY product_id`
-              ;
+        ;
     } else {
       query = `SELECT guitars.id AS product_id, seller_id, name, price, type, img_url, description, sold, user_favorites.id AS fave_id, (SELECT id FROM users WHERE email = '${cookie}') AS current_user
               FROM guitars
@@ -34,13 +34,18 @@ module.exports = (db) => {
       .then(data => {
         const guitars = data.rows;
         console.log('GUITARS .THEN')
-        return res.status(200).json({ guitars }).end();
+        return res
+          .status(200)
+          .json({ guitars })
+          .end();
       })
       .catch(err => {
         res
           .status(500)
           .json({ error: err.message });
       });
-  });
+  }).then(res => {
+    res.end()
+  })
   return router;
 };
