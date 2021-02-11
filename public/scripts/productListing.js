@@ -55,6 +55,7 @@ const loadProducts = () => {
   }).then(res => {
     $('.listings').empty();
     renderProducts(res);
+    res.end()
   })
 };
 
