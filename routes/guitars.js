@@ -10,7 +10,7 @@ const router = express.Router();
 
 module.exports = (db) => {
   console.log('INSIDE guitars.js')
-  router.get('/guitars', (req, res) => {
+  router.get('/guitars', async (req, res) => {
     res.header({ 'Access-Control-Allow-Origin': '*' })
     let query;
     const cookie = req.session['user_id'];
@@ -30,7 +30,7 @@ module.exports = (db) => {
               ORDER BY product_id`;
     }
     //const values = [req.session['user_id']];
-    db.query(query)
+    let guitarsFromDatabse = await db.query(query)
       .then(data => {
         const guitars = data.rows;
         console.log('GUITARS .THEN')
@@ -44,7 +44,8 @@ module.exports = (db) => {
           .status(500)
           .json({ error: err.message });
       });
-    res.end()
+    
+      res.send(guitarsFromDatabse)
   });
   return router;
 };
