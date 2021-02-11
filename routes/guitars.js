@@ -44,8 +44,7 @@ module.exports = (db) => {
           .status(500)
           .json({ error: err.message });
       });
-  }).then(res => {
     res.end()
-  })
+  });
   return router;
 };
