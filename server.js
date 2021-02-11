@@ -22,9 +22,9 @@ app.use(cookieSession({
 // PG database client/connection setup
 const { Pool } = require('pg');
 const dbParams = require('./lib/db.js');
-console.log('dbParams: ', dbParams)
+console.log('db PARAMETERS: ', dbParams)
 const db = new Pool(dbParams);
-console.log('db: ', db)
+//console.log('db: ', db)
 db.connect();
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
@@ -43,21 +43,23 @@ app.use("/styles", sass({
 app.use(express.static("public"));
 
 // Separated Routes for each Resource
-// Note: Feel free to replace the example routes below with your own
+// We should refactor this so we just require the routes directory
 const usersRoutes = require("./routes/users");
 const guitarsRoutes = require("./routes/guitars");
-const loginRoute = require("./routes/login");
-const registerRoute = require("./routes/register");
-const searchRoute = require("./routes/search");
-const newProductRoute = require("./routes/newListing");
-const myListings = require("./routes/myListings");
-const myFavorites = require("./routes/myFavorites")
-const contactOwner = require("./routes/contact");
-const logoutRoute = require("./routes/logout");
-const addFavorite = require("./routes/addToFavorites.js");
-const rmFavorite = require("./routes/removeFromFavorites.js");
-const deleteItem = require("./routes/delete.js");
-const sold = require("./routes/markSold.js");
+
+// const loginRoute = require("./routes/login");
+// const registerRoute = require("./routes/register");
+// const searchRoute = require("./routes/search");
+// const newProductRoute = require("./routes/newListing");
+// const myListings = require("./routes/myListings");
+// const myFavorites = require("./routes/myFavorites")
+// const contactOwner = require("./routes/contact");
+// const logoutRoute = require("./routes/logout");
+// const addFavorite = require("./routes/addToFavorites.js");
+// const rmFavorite = require("./routes/removeFromFavorites.js");
+// const deleteItem = require("./routes/delete.js");
+// const sold = require("./routes/markSold.js");
+
 // const twilioEmailRoute = require("./routes/twilioEmail");
 // const twilioSMSRoute = require("./routes/twilioSMS");
 
@@ -65,18 +67,20 @@ const sold = require("./routes/markSold.js");
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/", usersRoutes(db));
 app.use("/api/", guitarsRoutes(db));
-app.use("/myFavorites", myFavorites(db));
-app.use("/myListings", myListings(db));
-app.use("/login", loginRoute(db));
-app.use("/register", registerRoute(db));
-app.use("/search", searchRoute(db));
-app.use("/newProduct", newProductRoute(db));
-app.use("/contactSeller", contactOwner(db));
-app.use("/logout", logoutRoute(db));
-app.use("/addFavorite", addFavorite(db));
-app.use("/rmFavorite", rmFavorite(db));
-app.use("/delete", deleteItem(db));
-app.use("/sold", sold(db));
+
+// app.use("/myFavorites", myFavorites(db));
+// app.use("/myListings", myListings(db));
+// app.use("/login", loginRoute(db));
+// app.use("/register", registerRoute(db));
+// app.use("/search", searchRoute(db));
+// app.use("/newProduct", newProductRoute(db));
+// app.use("/contactSeller", contactOwner(db));
+// app.use("/logout", logoutRoute(db));
+// app.use("/addFavorite", addFavorite(db));
+// app.use("/rmFavorite", rmFavorite(db));
+// app.use("/delete", deleteItem(db));
+// app.use("/sold", sold(db));
+
 // app.use("/twilioEmail", twilioEmailRoute(db));
 // app.use("/twilioSMS", twilioSMSRoute(db));
 

@@ -7,10 +7,9 @@
 
 const express = require('express');
 const router  = express.Router();
-const app = express();
 
 module.exports = (db) => {
-  console.log('inside guitars.js')
+  console.log('INSIDE guitars.js')
   router.get('/guitars', (req, res) => {
     res.header({ 'Access-Control-Allow-Origin': '*' })
     let query;
@@ -33,8 +32,8 @@ module.exports = (db) => {
     //const values = [req.session['user_id']];
     db.query(query)
       .then(data => {
-        console.log('inside .then of guitars.js')
         const guitars = data.rows;
+        console.log('GUITARS .THEN')
         return res.status(200).json({ guitars });
       })
       .catch(err => {
